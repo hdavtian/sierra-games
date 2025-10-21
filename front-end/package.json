@@ -1,0 +1,50 @@
+{
+  "name": "sierra-games-frontend",
+  "version": "1.0.0",
+  "description": "My Favorite Sierra Games Growing Up - Frontend Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "build-css": "sass scss/main.scss css/main.css",
+    "watch-css": "sass --watch scss/main.scss css/main.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sierra",
+    "games",
+    "adventure",
+    "portfolio",
+    "frontend"
+  ],
+  "author": "harmadavtian.com",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "sass": "^1.93.2"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@vitejs/plugin-react": "^5.0.4",
+    "bootstrap": "^5.3.3",
+    "braces": "^3.0.3",
+    "chokidar": "^4.0.3",
+    "detect-libc": "^1.0.3",
+    "fill-range": "^7.1.1",
+    "immutable": "^5.1.4",
+    "is-extglob": "^2.1.1",
+    "is-glob": "^4.0.3",
+    "is-number": "^7.0.0",
+    "micromatch": "^4.0.8",
+    "node-addon-api": "^7.1.1",
+    "picomatch": "^2.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.9.4",
+    "readdirp": "^4.1.2",
+    "source-map-js": "^1.2.1",
+    "to-regex-range": "^5.0.1",
+    "vite": "^7.1.11"
+  }
+}

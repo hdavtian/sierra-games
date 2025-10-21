@@ -1,0 +1,42 @@
+{
+  "name": "sierra-games",
+  "version": "1.0.0",
+  "description": "Sierra Games - A full-stack application showcasing classic Sierra adventure games",
+  "private": true,
+  "workspaces": [
+    "front-end",
+    "back-end"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=front-end",
+    "build": "npm run build --workspace=front-end",
+    "preview": "npm run preview --workspace=front-end",
+    "dev:frontend": "npm run dev --workspace=front-end",
+    "build:frontend": "npm run build --workspace=front-end",
+    "dev:backend": "npm run dev --workspace=back-end",
+    "build:backend": "npm run build --workspace=back-end",
+    "install:all": "npm install && npm install --workspace=front-end && npm install --workspace=back-end",
+    "clean": "npm run clean --workspace=front-end && npm run clean --workspace=back-end",
+    "test": "npm run test --workspace=front-end && npm run test --workspace=back-end"
+  },
+  "keywords": [
+    "sierra",
+    "games",
+    "adventure",
+    "fullstack",
+    "react",
+    "spring-boot",
+    "mysql",
+    "monorepo"
+  ],
+  "author": "harmadavtian.com",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
