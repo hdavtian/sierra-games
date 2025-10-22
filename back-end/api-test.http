@@ -1,0 +1,71 @@
+### Test Sierra Games API Endpoints
+
+### Get all games
+GET http://localhost:8085/api/games
+Accept: application/json
+
+###
+
+### Get games by series - King's Quest
+GET http://localhost:8085/api/games/series/KQ
+Accept: application/json
+
+###
+
+### Get games by series - Space Quest
+GET http://localhost:8085/api/games/series/SQ
+Accept: application/json
+
+###
+
+### Get games by series - Police Quest
+GET http://localhost:8085/api/games/series/PQ
+Accept: application/json
+
+###
+
+### Get games by series - Quest for Glory
+GET http://localhost:8085/api/games/series/QFG
+Accept: application/json
+
+###
+
+### Get games by series - Leisure Suit Larry
+GET http://localhost:8085/api/games/series/LSL
+Accept: application/json
+
+###
+
+### Get specific game - King's Quest I (V3 data)
+GET http://localhost:8085/api/games/kq1
+Accept: application/json
+
+###
+
+### Get specific game - King's Quest I (V2 original data)
+GET http://localhost:8085/api/games/kq1-original
+Accept: application/json
+
+###
+
+### Get specific game - Space Quest I (V3 data)
+GET http://localhost:8085/api/games/sq1
+Accept: application/json
+
+###
+
+### Get specific game - Quest for Glory V
+GET http://localhost:8085/api/games/qfg5
+Accept: application/json
+
+###
+
+### Get all series info
+GET http://localhost:8085/api/games/series
+Accept: application/json
+
+###
+
+### Health check
+GET http://localhost:8085/actuator/health
+Accept: application/json
