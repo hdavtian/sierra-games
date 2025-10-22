@@ -1,41 +1,83 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { findGameById, SAMPLE_GAMES, GAME_SERIES, formatYear, truncateText } from '@/data/games'
+import { gamesApi, transformGameData, SERIES_CONFIG, getSeriesConfig, getSeriesBgClass, formatYear, truncateText } from '../services/gamesApi'
 
 const GameDetailPage = () => {
   const { gameId } = useParams()
   const navigate = useNavigate()
   const [game, setGame] = useState(null)
+  const [allGames, setAllGames] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    const foundGame = findGameById(gameId)
-    if (foundGame) {
-      setGame(foundGame)
-      document.title = `${foundGame.title} - Sierra Games`
-    } else {
-      setGame(null)
-      document.title = 'Game Not Found - Sierra Games'
+    const loadGameDetails = async () => {
+      try {
+        setLoading(true)
+        setError(null)
+        
+        // Load both the specific game and all games for similar games
+        const [gameData, allGamesData] = await Promise.all([
+          gamesApi.getGameById(gameId),
+          gamesApi.getAllGames()
+        ])
+        
+        if (gameData) {
+          const transformedGame = transformGameData(gameData)
+          setGame(transformedGame)
+          document.title = `${transformedGame.title} - Sierra Games`
+        } else {
+          setGame(null)
+          document.title = 'Game Not Found - Sierra Games'
+        }
+        
+        setAllGames(allGamesData.map(transformGameData))
+      } catch (err) {
+        console.error('Failed to load game details:', err)
+        setError(err.message || 'Failed to load game details')
+        setGame(null)
+        document.title = 'Error - Sierra Games'
+      } finally {
+        setLoading(false)
+      }
     }
-    setLoading(false)
+
+    if (gameId) {
+      loadGameDetails()
+      // Scroll to top when gameId changes
+      window.scrollTo(0, 0)
+    }
   }, [gameId])
 
   const getHeroBackground = (series) => {
     const backgrounds = {
-      'kings-quest': 'linear-gradient(135deg, #8b4513 0%, #daa520 100%)',
-      'space-quest': 'linear-gradient(135deg, #000080 0%, #4169e1 100%)',
-      'police-quest': 'linear-gradient(135deg, #000080 0%, #1e3a8a 100%)',
-      'quest-for-glory': 'linear-gradient(135deg, #228b22 0%, #32cd32 100%)',
-      'leisure-suit-larry': 'linear-gradient(135deg, #ff1493 0%, #ff69b4 100%)',
-      'standalone': 'linear-gradient(135deg, #daa520 0%, #ffd700 100%)'
+      'KQ': 'linear-gradient(135deg, #8b4513 0%, #daa520 100%)',
+      'SQ': 'linear-gradient(135deg, #000080 0%, #4169e1 100%)',
+      'PQ': 'linear-gradient(135deg, #000080 0%, #1e3a8a 100%)',
+      'QFG': 'linear-gradient(135deg, #228b22 0%, #32cd32 100%)',
+      'LSL': 'linear-gradient(135deg, #ff1493 0%, #ff69b4 100%)',
+      'OTHER': 'linear-gradient(135deg, #daa520 0%, #ffd700 100%)'
     }
-    return backgrounds[series] || backgrounds['kings-quest']
+    return backgrounds[series] || backgrounds['OTHER']
   }
 
   const getSimilarGames = (currentGame) => {
-    return SAMPLE_GAMES
-      .filter(g => g.id !== currentGame.id)
+    if (!allGames || !currentGame) return []
+    
+    // First try to get games from the same series
+    let similarGames = allGames
+      .filter(g => g.id !== currentGame.id && g.series === currentGame.series)
       .slice(0, 3)
+    
+    // If we don't have enough from the same series, add other games
+    if (similarGames.length < 3) {
+      const otherGames = allGames
+        .filter(g => g.id !== currentGame.id && g.series !== currentGame.series)
+        .slice(0, 3 - similarGames.length)
+      similarGames = [...similarGames, ...otherGames]
+    }
+    
+    return similarGames
   }
 
   if (loading) {
@@ -47,6 +89,23 @@ const GameDetailPage = () => {
               <span className="visually-hidden">Loading...</span>
             </div>
             <p className="mt-2">Loading game details...</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="game-detail-wrapper">
+        <div className="container py-5">
+          <div className="alert alert-danger text-center">
+            <h4 className="alert-heading">Error Loading Game</h4>
+            <p>{error}</p>
+            <hr />
+            <p className="mb-0">
+              <Link to="/" className="btn btn-primary">Return Home</Link>
+            </p>
           </div>
         </div>
       </div>
@@ -71,7 +130,7 @@ const GameDetailPage = () => {
 
         {/* Game Not Found */}
         <section className="game-hero">
-          <div className="hero-background" style={{background: getHeroBackground('kings-quest')}}></div>
+          <div className="hero-background" style={{background: getHeroBackground('KQ')}}></div>
           <div className="hero-overlay">
             <div className="container">
               <div className="row align-items-center justify-content-center">
@@ -125,7 +184,7 @@ const GameDetailPage = () => {
                     <span> {formatYear(game.year)}</span> • 
                     <span> {game.developer}</span>
                   </p>
-                  <p className="hero-description">{game.shortDescription}</p>
+                  <p className="hero-description">{game.longDescription || game.shortDescription}</p>
                   <div className="hero-actions">
                     <button 
                       className="btn btn-primary btn-lg" 
@@ -158,14 +217,18 @@ const GameDetailPage = () => {
               <div className="detail-section">
                 <h2>About the Game</h2>
                 <div>
-                  {game.longDescription.split('\n\n').map((paragraph, index) => (
-                    <p key={index}>{paragraph.trim()}</p>
-                  ))}
+                  {game.longDescription ? (
+                    game.longDescription.split('\n\n').map((paragraph, index) => (
+                      <p key={index}>{paragraph.trim()}</p>
+                    ))
+                  ) : (
+                    <p>{game.shortDescription}</p>
+                  )}
                 </div>
               </div>
 
               {/* Characters */}
-              {game.characters && game.characters.length > 0 && (
+              {game.characters && Array.isArray(game.characters) && game.characters.length > 0 && (
                 <div className="detail-section">
                   <h2>Main Characters</h2>
                   <div className="characters-grid">
@@ -174,8 +237,8 @@ const GameDetailPage = () => {
                         <div className="character-avatar">
                           <i className="fas fa-user-circle"></i>
                         </div>
-                        <h4>{character.name}</h4>
-                        <p>{character.description}</p>
+                        <h4>{typeof character === 'object' ? character.name : character}</h4>
+                        <p>{typeof character === 'object' ? character.description : ''}</p>
                       </div>
                     ))}
                   </div>
@@ -183,7 +246,7 @@ const GameDetailPage = () => {
               )}
 
               {/* Gameplay Features */}
-              {game.features && game.features.length > 0 && (
+              {game.features && Array.isArray(game.features) && game.features.length > 0 && (
                 <div className="detail-section">
                   <h2>Gameplay Features</h2>
                   <div className="features-list">
@@ -191,9 +254,9 @@ const GameDetailPage = () => {
                       <div key={index} className="feature-item">
                         <h5>
                           <i className="fas fa-star text-warning me-2"></i>
-                          {feature.name}
+                          {typeof feature === 'object' ? feature.name : feature}
                         </h5>
-                        <p>{feature.description}</p>
+                        <p>{typeof feature === 'object' ? feature.description : ''}</p>
                       </div>
                     ))}
                   </div>
@@ -229,16 +292,20 @@ const GameDetailPage = () => {
                 </div>
 
                 {/* Fan Resources */}
-                {game.fanSites && game.fanSites.length > 0 && (
+                {game.fanSites && Array.isArray(game.fanSites) && game.fanSites.length > 0 && (
                   <div className="info-card">
                     <h3>Fan Resources</h3>
                     <div className="fan-links">
-                      {game.fanSites.map((site, index) => (
-                        <a key={index} href={site.url} target="_blank" rel="noopener noreferrer">
-                          <i className="fas fa-external-link-alt me-2"></i>
-                          {site.name}
-                        </a>
-                      ))}
+                      {game.fanSites.map((site, index) => {
+                        const siteUrl = typeof site === 'object' ? site.url : site;
+                        const siteName = typeof site === 'object' ? site.name : `Fan Site ${index + 1}`;
+                        return (
+                          <a key={index} href={siteUrl} target="_blank" rel="noopener noreferrer">
+                            <i className="fas fa-external-link-alt me-2"></i>
+                            {siteName}
+                          </a>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
@@ -309,15 +376,20 @@ const GameDetailPage = () => {
             </div>
             <div className="modal-body">
               <div className="videos-grid">
-                {game.videos && game.videos.map((video, index) => (
-                  <div key={index} className="video-item" onClick={() => window.open(video.url, '_blank')}>
+                {game.videos && Array.isArray(game.videos) && game.videos.map((video, index) => (
+                  <div key={index} className="video-item" onClick={() => window.open(typeof video === 'object' ? video.url : video, '_blank')}>
                     <div className="video-placeholder">
                       <i className="fas fa-play-circle"></i>
-                      <h5>{video.title}</h5>
+                      <h5>{typeof video === 'object' ? video.title : `Video ${index + 1}`}</h5>
                       <p className="text-muted">Click to watch on YouTube</p>
                     </div>
                   </div>
                 ))}
+                {(!game.videos || !Array.isArray(game.videos) || game.videos.length === 0) && (
+                  <div className="text-center">
+                    <p className="text-muted">No videos available for this game.</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
