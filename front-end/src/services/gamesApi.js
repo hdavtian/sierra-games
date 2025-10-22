@@ -278,7 +278,7 @@ export const getGameCardStyle = (gameId, seriesCode) => {
   return {
     backgroundImage: `${gradient}, url('${imageUrl}')`,
     backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    backgroundPosition: 'top',
     backgroundBlendMode: 'overlay'
   };
 };

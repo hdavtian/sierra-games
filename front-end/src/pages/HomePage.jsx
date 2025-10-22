@@ -11,6 +11,7 @@ const HomePage = () => {
   const [filterSeries, setFilterSeries] = useState('')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [expandedCards, setExpandedCards] = useState({})
 
   // Load games from API
   useEffect(() => {
@@ -233,25 +234,57 @@ const HomePage = () => {
             {currentView === 'grid' && (
               <div className="games-grid active">
                 <div className="row">
-                  {filteredGames.map((game) => (
-                    <div key={game.id} className="col-lg-4 col-md-6 mb-4">
-                      <div className="game-card">
+                  {filteredGames.map((game) => {
+                    const isExpanded = expandedCards[game.id] || false;
+                    
+                    const toggleExpanded = (e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setExpandedCards(prev => ({
+                        ...prev,
+                        [game.id]: !prev[game.id]
+                      }));
+                    };
+
+                    return (
+                      <div key={game.id} className="col-lg-4 col-md-6 mb-4">
                         <div 
-                          className={`card-image ${getCardBgClass(game.series)}`}
-                          style={getGameCardStyle(game.id, game.series)}
-                        ></div>
-                        <div className="card-content">
-                          <h3>{game.title}</h3>
-                          <p className="series-tag">{game.seriesName}</p>
-                          <p className="year">{game.year}</p>
-                          <p className="description">{game.shortDescription}</p>
-                          <Link to={`/game/${game.id}`} className="btn btn-primary">
-                            View Details
-                          </Link>
+                          className={`game-card ${getCardBgClass(game.series)}`}
+                        >
+                          {/* Background image container for zoom effect */}
+                          <div 
+                            className="card-background"
+                            style={getGameCardStyle(game.id, game.series)}
+                          ></div>
+                          {/* Main Content - Always Visible */}
+                          <div className="card-main-content">
+                            <h3 className="game-title">{game.title}</h3>
+                            <div className="card-actions">
+                              <span 
+                                className="info-icon"
+                                onClick={toggleExpanded}
+                                aria-label={isExpanded ? 'Hide details' : 'Show details'}
+                              >
+                                <i className={`fas fa-info-circle`}></i>
+                              </span>
+                              <Link to={`/game/${game.id}`} className="btn btn-view">
+                                View
+                              </Link>
+                            </div>
+                          </div>
+
+                          {/* Expandable Content */}
+                          <div className={`card-expandable-content ${isExpanded ? 'expanded' : ''}`}>
+                            <div className="expandable-inner">
+                              <p className="series-tag">{game.seriesName}</p>
+                              <p className="year">{game.year}</p>
+                              <p className="description">{game.shortDescription}</p>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             )}
