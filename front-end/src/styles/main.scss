@@ -195,14 +195,16 @@ a {
     position: relative;
 
     .carousel {
-        height: $carousel-height-desktop;
+        @include mobile-only {
+            height: $carousel-height-mobile;
+        }
 
-        @include desktop-only {
+        @include tablet-only {
             height: $carousel-height-tablet;
         }
 
-        @include mobile-and-tablet {
-            height: $carousel-height-mobile;
+        @include desktop-and-up {
+            height: $carousel-height-desktop;
         }
     }
 
@@ -238,7 +240,20 @@ a {
     }
 
     .carousel-item {
-        height: 500px !important;
+
+        // height: 500px;
+        // height: 80vh !important;
+        @include mobile-only {
+            height: $carousel-height-mobile;
+        }
+
+        @include tablet-only {
+            height: $carousel-height-tablet;
+        }
+
+        @include desktop-and-up {
+            height: $carousel-height-desktop;
+        }
     }
 
     .carousel-content {

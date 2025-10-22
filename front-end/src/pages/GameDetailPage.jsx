@@ -184,7 +184,7 @@ const GameDetailPage = () => {
                     <span> {formatYear(game.year)}</span> • 
                     <span> {game.developer}</span>
                   </p>
-                  <p className="hero-description">{game.longDescription || game.shortDescription}</p>
+                  <p className="hero-description">{game.shortDescription}</p>
                   <div className="hero-actions">
                     <button 
                       className="btn btn-primary btn-lg" 
