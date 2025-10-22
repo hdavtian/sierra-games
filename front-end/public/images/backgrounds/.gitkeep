@@ -1,0 +1,23 @@
+# Background Images Directory
+
+This directory contains background images for the featured games carousel.
+
+## Expected Files:
+
+- kings-quest-bg.jpg (1920x1080 recommended)
+- space-quest-bg.jpg (1920x1080 recommended)
+- police-quest-bg.jpg (1920x1080 recommended)
+- quest-for-glory-bg.jpg (1920x1080 recommended)
+- leisure-suit-larry-bg.jpg (1920x1080 recommended)
+- other-games-bg.jpg (1920x1080 recommended)
+
+## Usage:
+
+Images are automatically loaded based on the game's series code from the database.
+If an image doesn't exist, the system falls back to gradient backgrounds.
+
+## Format:
+
+- Preferred format: JPG or WebP for best performance
+- Resolution: 1920x1080 (Full HD) recommended
+- File size: Keep under 500KB for good loading performance

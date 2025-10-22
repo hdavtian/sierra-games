@@ -197,6 +197,41 @@ export const getSeriesActionText = (seriesCode) => {
   return actionMap[seriesCode] || 'Play Game';
 };
 
+// Get background image for series (with fallback to gradient)
+export const getSeriesBackgroundImage = (seriesCode) => {
+  const imageMap = {
+    'KQ': '/images/backgrounds/kings-quest-bg.jpg',
+    'SQ': '/images/backgrounds/space-quest-bg.jpg', 
+    'PQ': '/images/backgrounds/police-quest-bg.jpg',
+    'QFG': '/images/backgrounds/quest-for-glory-bg.jpg',
+    'LSL': '/images/backgrounds/leisure-suit-larry-bg.jpg',
+    'OTHER': '/images/backgrounds/gold-rush-bg.jpg'
+  };
+  return imageMap[seriesCode] || imageMap['OTHER'];
+};
+
+// Get combined background style (image with gradient fallback)
+export const getSeriesBackgroundStyle = (seriesCode) => {
+  const gradients = {
+    'KQ': 'linear-gradient(135deg, rgba(139, 69, 19, 0.8) 0%, rgba(218, 165, 32, 0.8) 100%)',
+    'SQ': 'linear-gradient(135deg, rgba(0, 0, 128, 0.8) 0%, rgba(65, 105, 225, 0.8) 100%)',
+    'PQ': 'linear-gradient(135deg, rgba(0, 0, 128, 0.8) 0%, rgba(30, 58, 138, 0.8) 100%)',
+    'QFG': 'linear-gradient(135deg, rgba(34, 139, 34, 0.8) 0%, rgba(50, 205, 50, 0.8) 100%)',
+    'LSL': 'linear-gradient(135deg, rgba(255, 20, 147, 0.8) 0%, rgba(255, 105, 180, 0.8) 100%)',
+    'OTHER': 'linear-gradient(135deg, rgba(218, 165, 32, 0.8) 0%, rgba(255, 215, 0, 0.8) 100%)'
+  };
+  
+  const imageUrl = getSeriesBackgroundImage(seriesCode);
+  const gradient = gradients[seriesCode] || gradients['OTHER'];
+  
+  return {
+    backgroundImage: `${gradient}, url('${imageUrl}')`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundBlendMode: 'overlay'
+  };
+};
+
 // Get series configuration
 export const getSeriesConfig = (seriesCode) => {
   return SERIES_CONFIG[seriesCode] || SERIES_CONFIG['OTHER'];
@@ -219,6 +254,39 @@ export const truncateText = (text, maxLength) => {
   if (!text) return '';
   if (text.length <= maxLength) return text;
   return text.slice(0, maxLength) + '...';
+};
+
+// Get game card image path
+export const getGameCardImage = (gameId) => {
+  return `/images/games/${gameId}.jpg`;
+};
+
+// Get game card background style (image with gradient fallback)
+export const getGameCardStyle = (gameId, seriesCode) => {
+  const gradients = {
+    'KQ': 'linear-gradient(135deg, rgba(139, 69, 19, 0.7) 0%, rgba(218, 165, 32, 0.7) 100%)',
+    'SQ': 'linear-gradient(135deg, rgba(0, 0, 128, 0.7) 0%, rgba(65, 105, 225, 0.7) 100%)',
+    'PQ': 'linear-gradient(135deg, rgba(0, 0, 128, 0.7) 0%, rgba(30, 58, 138, 0.7) 100%)',
+    'QFG': 'linear-gradient(135deg, rgba(34, 139, 34, 0.7) 0%, rgba(50, 205, 50, 0.7) 100%)',
+    'LSL': 'linear-gradient(135deg, rgba(255, 20, 147, 0.7) 0%, rgba(255, 105, 180, 0.7) 100%)',
+    'OTHER': 'linear-gradient(135deg, rgba(218, 165, 32, 0.7) 0%, rgba(255, 215, 0, 0.7) 100%)'
+  };
+  
+  const imageUrl = getGameCardImage(gameId);
+  const gradient = gradients[seriesCode] || gradients['OTHER'];
+  
+  return {
+    backgroundImage: `${gradient}, url('${imageUrl}')`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundBlendMode: 'overlay'
+  };
+};
+
+// Get card background class (fallback for when no image is available)
+export const getCardBgClass = (seriesCode) => {
+  const config = SERIES_CONFIG[seriesCode];
+  return config ? config.bgClass : 'gold-rush-bg';
 };
 
 export default gamesApi;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { gamesApi, transformGamesData, SERIES_CONFIG, getSeriesConfig, getSeriesBgClass, getSeriesActionText, findGameById, getGamesBySeries } from '../services/gamesApi'
+import { gamesApi, transformGamesData, SERIES_CONFIG, getSeriesConfig, getSeriesBgClass, getSeriesActionText, getSeriesBackgroundStyle, getCardBgClass, getGameCardStyle, findGameById, getGamesBySeries } from '../services/gamesApi'
 
 const HomePage = () => {
   const [currentView, setCurrentView] = useState('grid')
@@ -128,7 +128,10 @@ const HomePage = () => {
           <div className="carousel-inner">
             {featuredGames.map((game, index) => (
               <div key={game.id} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                <div className={`carousel-slide ${getSeriesBgClass(game.series)}`}>
+                <div 
+                  className={`carousel-slide ${getSeriesBgClass(game.series)}`}
+                  style={getSeriesBackgroundStyle(game.series)}
+                >
                   <div className="container">
                     <div className="carousel-content">
                       <h1>{game.title}</h1>
@@ -233,7 +236,10 @@ const HomePage = () => {
                   {filteredGames.map((game) => (
                     <div key={game.id} className="col-lg-4 col-md-6 mb-4">
                       <div className="game-card">
-                        <div className={`card-image ${getCardBgClass(game.series)}`}></div>
+                        <div 
+                          className={`card-image ${getCardBgClass(game.series)}`}
+                          style={getGameCardStyle(game.id, game.series)}
+                        ></div>
                         <div className="card-content">
                           <h3>{game.title}</h3>
                           <p className="series-tag">{game.seriesName}</p>
