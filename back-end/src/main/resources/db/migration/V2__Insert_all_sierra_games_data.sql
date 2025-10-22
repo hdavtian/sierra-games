@@ -144,23 +144,6 @@ INSERT INTO games (
     id, title, series, series_name, year, developer, short_description, long_description, characters, features, fan_sites, screenshots, videos, status, featured
 ) VALUES
 (
-    'kq1',
-    'King''s Quest I: Quest for the Crown',
-    'KQ',
-    'King''s Quest',
-    1984,
-    'Sierra On-Line',
-    'Sir Graham must find three legendary treasures to become the next king of Daventry.',
-    'Sir Graham must find three legendary treasures to become the next king of Daventry: a magic mirror, a magic shield, and a magic chest. The aging King Edward has no heir and seeks a worthy successor.',
-    JSON_ARRAY('Sir Graham', 'King Edward', 'Magic Mirror', 'Dragon', 'Witch'),
-    JSON_OBJECT('graphics', 'EGA, later VGA remake (1990)', 'interface', 'Text parser with graphics', 'platforms', JSON_ARRAY('IBM PC', 'Apple II', 'Amiga', 'Atari ST'), 'notable_features', JSON_ARRAY('First King''s Quest game', 'Established series mythology', 'AGI engine')),
-    JSON_ARRAY('https://kingsquest.wikia.com', 'https://sierragamers.com'),
-    JSON_ARRAY(),
-    JSON_ARRAY(),
-    'PUBLISHED',
-    FALSE
-),
-(
     'kq2',
     'King''s Quest II: Romancing the Throne',
     'KQ',
@@ -302,23 +285,6 @@ INSERT INTO games (
     id, title, series, series_name, year, developer, short_description, long_description, characters, features, fan_sites, screenshots, videos, status, featured
 ) VALUES
 (
-    'sq1',
-    'Space Quest I: The Sarien Encounter',
-    'SQ',
-    'Space Quest',
-    1986,
-    'Sierra On-Line',
-    'Roger Wilco, a janitor aboard the scientific spaceship Arcada, must escape when alien Sariens attack.',
-    'Roger Wilco, a janitor aboard the scientific spaceship Arcada, must escape when alien Sariens attack and steal the Star Generator. Roger becomes the unlikely hero who must stop them.',
-    JSON_ARRAY('Roger Wilco', 'Sariens', 'Dr. Wilcox', 'Captain Quirk'),
-    JSON_OBJECT('graphics', 'EGA, later VGA remake (1991)', 'interface', 'Text parser with graphics, later point-and-click', 'platforms', JSON_ARRAY('IBM PC', 'Apple II', 'Amiga', 'Atari ST'), 'notable_features', JSON_ARRAY('Debut of Roger Wilco', 'Sci-fi comedy', 'AGI engine')),
-    JSON_ARRAY('https://spacequest.net', 'https://sierragamers.com'),
-    JSON_ARRAY(),
-    JSON_ARRAY(),
-    'PUBLISHED',
-    FALSE
-),
-(
     'sq2',
     'Space Quest II: Vohaul''s Revenge',
     'SQ',
@@ -409,23 +375,6 @@ INSERT INTO games (
     id, title, series, series_name, year, developer, short_description, long_description, characters, features, fan_sites, screenshots, videos, status, featured
 ) VALUES
 (
-    'pq1',
-    'Police Quest: In Pursuit of the Death Angel',
-    'PQ',
-    'Police Quest',
-    1987,
-    'Sierra On-Line',
-    'Officer Sonny Bonds must work his way up from traffic duty to detective.',
-    'Officer Sonny Bonds must work his way up from traffic duty to detective while pursuing the dangerous drug dealer known as the Death Angel in the city of Lytton.',
-    JSON_ARRAY('Sonny Bonds', 'Marie Wilkans', 'Jack Cobb', 'Death Angel', 'Captain Tate'),
-    JSON_OBJECT('graphics', 'EGA', 'interface', 'Text parser with graphics', 'platforms', JSON_ARRAY('IBM PC', 'Apple II', 'Amiga', 'Atari ST'), 'notable_features', JSON_ARRAY('Realistic police procedures', 'Jim Walls design', 'Procedural accuracy')),
-    JSON_ARRAY('https://policequest.net', 'https://sierragamers.com'),
-    JSON_ARRAY(),
-    JSON_ARRAY(),
-    'PUBLISHED',
-    FALSE
-),
-(
     'pq2',
     'Police Quest II: The Vengeance',
     'PQ',
@@ -515,23 +464,6 @@ INSERT INTO games (
 INSERT INTO games (
     id, title, series, series_name, year, developer, short_description, long_description, characters, features, fan_sites, screenshots, videos, status, featured
 ) VALUES
-(
-    'qfg1',
-    'Quest for Glory: So You Want to Be a Hero',
-    'QFG',
-    'Quest for Glory',
-    1989,
-    'Sierra On-Line',
-    'A hero from the Famous Adventurer''s Correspondence School arrives in the cursed valley of Spielburg.',
-    'A hero from the Famous Adventurer''s Correspondence School arrives in the cursed valley of Spielburg where the evil Baba Yaga has brought chaos. The hero must lift the curse and save the land.',
-    JSON_ARRAY('The Hero', 'Baba Yaga', 'Zara', 'Wolfgang Abenteuer', 'Baron von Spielburg'),
-    JSON_OBJECT('graphics', 'EGA, later VGA remake (1992)', 'interface', 'Text parser with graphics, later point-and-click', 'platforms', JSON_ARRAY('IBM PC', 'Amiga', 'Atari ST'), 'notable_features', JSON_ARRAY('Character class system', 'RPG/Adventure hybrid', 'German folklore theme')),
-    JSON_ARRAY('https://questforglory.com', 'https://sierragamers.com'),
-    JSON_ARRAY(),
-    JSON_ARRAY(),
-    'PUBLISHED',
-    FALSE
-),
 (
     'qfg2',
     'Quest for Glory II: Trial by Fire',
@@ -637,23 +569,6 @@ INSERT INTO games (
     ),
     'PUBLISHED',
     TRUE
-),
-(
-    'lsl1',
-    'Leisure Suit Larry in the Land of the Lounge Lizards',
-    'LSL',
-    'Leisure Suit Larry',
-    1987,
-    'Sierra On-Line',
-    'Follow Larry Laffer on his quest for love in this adult-oriented comedy adventure.',
-    'Leisure Suit Larry in the Land of the Lounge Lizards was Sierra''s entry into adult-oriented adventure gaming. Players control Larry Laffer, a 40-year-old virgin in a white polyester suit, as he attempts to find romance in the fictional city of Lost Wages.',
-    JSON_ARRAY('Larry Laffer', 'Fawn', 'Eve', 'Faith'),
-    JSON_OBJECT('graphics', 'EGA, later VGA remake', 'interface', 'Text parser with graphics', 'platforms', JSON_ARRAY('IBM PC', 'Apple II', 'Amiga', 'Atari ST'), 'notable_features', JSON_ARRAY('Adult humor', 'Age verification', 'Multiple solutions')),
-    JSON_ARRAY('https://www.larryland.com', 'https://sierragamers.com'),
-    JSON_ARRAY(),
-    JSON_ARRAY(),
-    'PUBLISHED',
-    FALSE
 ),
 (
     'goldrush',

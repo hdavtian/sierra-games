@@ -17,7 +17,6 @@ Images should be named exactly after the game's database ID with `.jpg` extensio
 
 ### Other King's Quest Games:
 
-- `kq1.jpg` - King's Quest I (regular version)
 - `kq2.jpg` - King's Quest II: Romancing the Throne
 - `kq3.jpg` - King's Quest III: To Heir Is Human
 - `kq4.jpg` - King's Quest IV: The Perils of Rosella
@@ -29,7 +28,6 @@ Images should be named exactly after the game's database ID with `.jpg` extensio
 
 ### Other Space Quest Games:
 
-- `sq1.jpg` - Space Quest I (regular version)
 - `sq2.jpg` - Space Quest II: Vohaul's Revenge
 - `sq3.jpg` - Space Quest III: The Pirates of Pestulon
 - `sq4.jpg` - Space Quest IV: Roger Wilco and the Time Rippers
@@ -38,7 +36,6 @@ Images should be named exactly after the game's database ID with `.jpg` extensio
 
 ### Other Police Quest Games:
 
-- `pq1.jpg` - Police Quest I (regular version)
 - `pq2.jpg` - Police Quest II: The Vengeance
 - `pq3.jpg` - Police Quest III: The Kindred
 - `pq4.jpg` - Police Quest: Open Season
@@ -47,15 +44,10 @@ Images should be named exactly after the game's database ID with `.jpg` extensio
 
 ### Other Quest for Glory Games:
 
-- `qfg1.jpg` - Quest for Glory I (regular version)
 - `qfg2.jpg` - Quest for Glory II: Trial by Fire
 - `qfg3.jpg` - Quest for Glory III: Wages of War
 - `qfg4.jpg` - Quest for Glory: Shadows of Darkness
 - `qfg5.jpg` - Quest for Glory V: Dragon Fire
-
-### Other Leisure Suit Larry Games:
-
-- `lsl1.jpg` - Leisure Suit Larry I (regular version)
 
 ## Image Specifications:
 
