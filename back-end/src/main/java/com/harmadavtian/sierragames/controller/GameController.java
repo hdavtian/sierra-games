@@ -44,6 +44,12 @@ public class GameController {
         return ResponseEntity.ok(games);
     }
 
+    @GetMapping("/games/featured")
+    public ResponseEntity<List<Game>> getFeaturedGames() {
+        List<Game> games = gameService.getFeaturedGames();
+        return ResponseEntity.ok(games);
+    }
+
     @GetMapping("/games/search")
     public ResponseEntity<List<Game>> searchPublishedGamesByTitle(@RequestParam String title) {
         List<Game> games = gameService.searchPublishedGamesByTitle(title);

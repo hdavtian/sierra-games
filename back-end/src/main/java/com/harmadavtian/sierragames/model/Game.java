@@ -60,6 +60,9 @@ public class Game {
     @Column(name = "status", nullable = false)
     private GameStatus status = GameStatus.DRAFT;
 
+    @Column(name = "featured", nullable = false)
+    private Boolean featured = false;
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
@@ -199,6 +202,14 @@ public class Game {
 
     public void setStatus(GameStatus status) {
         this.status = status;
+    }
+
+    public Boolean getFeatured() {
+        return featured;
+    }
+
+    public void setFeatured(Boolean featured) {
+        this.featured = featured;
     }
 
     public LocalDateTime getCreatedAt() {

@@ -41,6 +41,10 @@ public interface GameRepository extends JpaRepository<Game, String> {
     @Query("SELECT g FROM Game g WHERE g.id = :id AND g.status = 'PUBLISHED'")
     Optional<Game> findPublishedGameById(@Param("id") String id);
 
+    // Find featured games
+    @Query("SELECT g FROM Game g WHERE g.featured = true AND g.status = 'PUBLISHED' ORDER BY g.year ASC")
+    List<Game> findFeaturedGames();
+
     // Count games by series
     long countBySeries(String series);
 

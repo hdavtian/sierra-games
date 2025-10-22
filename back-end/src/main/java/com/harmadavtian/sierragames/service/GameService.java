@@ -38,6 +38,11 @@ public class GameService {
     }
 
     @Transactional(readOnly = true)
+    public List<Game> getFeaturedGames() {
+        return gameRepository.findFeaturedGames();
+    }
+
+    @Transactional(readOnly = true)
     public List<Game> searchPublishedGamesByTitle(String title) {
         return gameRepository.findByTitleContainingIgnoreCase(title)
                 .stream()

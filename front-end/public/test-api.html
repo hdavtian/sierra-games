@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .game {
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .loading {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sierra Games API Test</h1>
+    <div id="status"></div>
+    <div id="games"></div>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:8085/api';
+
+        async function testAPI() {
+            const statusDiv = document.getElementById('status');
+            const gamesDiv = document.getElementById('games');
+
+            try {
+                statusDiv.innerHTML = '<div class="loading">Loading games from API...</div>';
+
+                const response = await fetch(`${API_BASE_URL}/games`);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const games = await response.json();
+
+                statusDiv.innerHTML = `<div>✅ Successfully loaded ${games.length} games</div>`;
+
+                gamesDiv.innerHTML = games.slice(0, 5).map(game => `
+                    <div class="game">
+                        <h3>${game.title}</h3>
+                        <p><strong>Series:</strong> ${game.series} (${game.seriesName})</p>
+                        <p><strong>Year:</strong> ${game.year}</p>
+                        <p><strong>Developer:</strong> ${game.developer}</p>
+                        <p><strong>Description:</strong> ${game.shortDescription}</p>
+                    </div>
+                `).join('');
+
+            } catch (error) {
+                statusDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+                gamesDiv.innerHTML = '';
+            }
+        }
+
+        // Test the API when page loads
+        testAPI();
+    </script>
+</body>
+
+</html>
