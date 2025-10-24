@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { gamesApi, transformGameData, SERIES_CONFIG, getSeriesConfig, getSeriesBgClass, formatYear, truncateText } from '../services/gamesApi'
+import { gamesApi, transformGameData, SERIES_CONFIG, getSeriesConfig, getSeriesBgClass, formatYear, truncateText, getSeriesBackgroundStyle } from '../services/gamesApi'
 
 const GameDetailPage = () => {
   const { gameId } = useParams()
@@ -66,17 +66,7 @@ const GameDetailPage = () => {
     }
   }, [gameId])
 
-  const getHeroBackground = (series) => {
-    const backgrounds = {
-      'KQ': 'linear-gradient(135deg, #8b4513 0%, #daa520 100%)',
-      'SQ': 'linear-gradient(135deg, #000080 0%, #4169e1 100%)',
-      'PQ': 'linear-gradient(135deg, #000080 0%, #1e3a8a 100%)',
-      'QFG': 'linear-gradient(135deg, #228b22 0%, #32cd32 100%)',
-      'LSL': 'linear-gradient(135deg, #ff1493 0%, #ff69b4 100%)',
-      'OTHER': 'linear-gradient(135deg, #daa520 0%, #ffd700 100%)'
-    }
-    return backgrounds[series] || backgrounds['OTHER']
-  }
+
 
   const getSimilarGames = (currentGame) => {
     if (!allGames || !currentGame) return []
@@ -370,7 +360,7 @@ const GameDetailPage = () => {
 
       {/* Game Hero Section */}
       <section className="game-hero">
-        <div className="hero-background" style={{background: getHeroBackground(game.series)}}></div>
+        <div className="hero-background" style={getSeriesBackgroundStyle(game.series)}></div>
         <div className="hero-overlay">
           <div className="container">
             <div className="row align-items-center">
