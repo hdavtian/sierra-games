@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { gamesApi, transformGamesData, SERIES_CONFIG, getSeriesConfig, getSeriesBgClass, getSeriesActionText, getSeriesBackgroundStyle, getCardBgClass, getGameCardStyle, findGameById, getGamesBySeries } from '../services/gamesApi'
 
 const HomePage = () => {
+  const navigate = useNavigate()
   const [currentView, setCurrentView] = useState('grid')
   const [games, setGames] = useState([])
   const [featuredGames, setFeaturedGames] = useState([])
@@ -246,10 +247,19 @@ const HomePage = () => {
                       }));
                     };
 
+                    const handleCardClick = (e) => {
+                      // Don't navigate if clicking on buttons or info icon
+                      if (e.target.closest('.card-actions') || e.target.closest('.info-icon') || e.target.closest('.btn')) {
+                        return;
+                      }
+                      navigate(`/game/${game.id}`);
+                    };
+
                     return (
                       <div key={game.id} className="col-lg-3 col-md-6 mb-4">
                         <div 
                           className={`game-card ${getCardBgClass(game.series)}`}
+                          onClick={handleCardClick}
                         >
                           {/* Background image container for zoom effect */}
                           <div 

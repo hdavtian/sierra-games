@@ -417,16 +417,26 @@ a {
     transition: all 0.3s ease;
     height: $game-card-height;
     position: relative;
-    cursor: default;
+    cursor: pointer;
 
     &:hover {
-        border-color: rgba(255, 255, 255, 0.2);
-        box-shadow: $hover-shadow;
+        border-color: rgba($primary-color, 0.8);
+        box-shadow: 0 0 20px rgba($primary-color, 0.3), $hover-shadow;
+        transform: translateY(-2px);
 
         // Zoom background image on hover
         .card-background {
             transform: scale(1.05);
         }
+
+        .card-main-content {
+            background: rgba(0, 0, 0, 0.75);
+        }
+    }
+
+    &:active {
+        transform: translateY(0px);
+        transition: transform 0.1s ease;
     }
 
     // Background image container for zoom effect
@@ -446,26 +456,56 @@ a {
     // Fallback gradient backgrounds for when images don't load
     &.kings-quest-bg {
         background: linear-gradient(135deg, #8b4513 0%, #daa520 100%);
+
+        &:hover {
+            border-color: rgba(218, 165, 32, 0.8);
+            box-shadow: 0 0 20px rgba(218, 165, 32, 0.3), $hover-shadow;
+        }
     }
 
     &.space-quest-bg {
         background: linear-gradient(135deg, #000080 0%, #4169e1 100%);
+
+        &:hover {
+            border-color: rgba(65, 105, 225, 0.8);
+            box-shadow: 0 0 20px rgba(65, 105, 225, 0.3), $hover-shadow;
+        }
     }
 
     &.police-quest-bg {
         background: linear-gradient(135deg, #000080 0%, #1e3a8a 100%);
+
+        &:hover {
+            border-color: rgba(30, 58, 138, 0.8);
+            box-shadow: 0 0 20px rgba(30, 58, 138, 0.3), $hover-shadow;
+        }
     }
 
     &.quest-for-glory-bg {
         background: linear-gradient(135deg, #228b22 0%, #32cd32 100%);
+
+        &:hover {
+            border-color: rgba(50, 205, 50, 0.8);
+            box-shadow: 0 0 20px rgba(50, 205, 50, 0.3), $hover-shadow;
+        }
     }
 
     &.leisure-suit-larry-bg {
         background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+
+        &:hover {
+            border-color: rgba(255, 105, 180, 0.8);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.3), $hover-shadow;
+        }
     }
 
     &.gold-rush-bg {
         background: linear-gradient(135deg, #daa520 0%, #ffd700 100%);
+
+        &:hover {
+            border-color: rgba(255, 215, 0, 0.8);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), $hover-shadow;
+        }
     }
 
     // Main content - always visible at bottom
@@ -499,6 +539,8 @@ a {
             align-items: center;
             gap: map-get($spacers, 2);
             flex-shrink: 0;
+            z-index: 10;
+            position: relative;
 
             .info-icon {
                 color: $white;
@@ -507,6 +549,8 @@ a {
                 transition: all 0.3s ease;
                 padding: 4px;
                 border-radius: $border-radius;
+                z-index: 11;
+                position: relative;
 
                 &:hover {
                     color: rgba(255, 255, 255, 0.8);
@@ -527,6 +571,8 @@ a {
                 padding: 8px 16px;
                 color: $white;
                 font-size: $font-size-sm;
+                z-index: 11;
+                position: relative;
                 font-weight: $font-weight-semibold;
                 text-decoration: none;
                 transition: all 0.3s ease;
