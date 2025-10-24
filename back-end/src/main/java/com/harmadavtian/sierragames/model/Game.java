@@ -1,5 +1,6 @@
 package com.harmadavtian.sierragames.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -226,6 +227,19 @@ public class Game {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    // One game has many screenshots
+    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private List<Screenshot> gameScreenshots;
+
+    public List<Screenshot> getGameScreenshots() {
+        return gameScreenshots;
+    }
+
+    public void setGameScreenshots(List<Screenshot> gameScreenshots) {
+        this.gameScreenshots = gameScreenshots;
     }
 
     @Override

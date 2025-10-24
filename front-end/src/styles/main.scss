@@ -1385,3 +1385,268 @@ a {
         display: block !important;
     }
 }
+
+// ======================================
+// SCREENSHOTS MODAL STYLES
+// ======================================
+
+#screenshotsModal {
+    .modal-dialog {
+        max-width: 90vw;
+        width: 90vw;
+    }
+
+    .modal-body {
+        padding: map-get($spacers, 4);
+    }
+
+    .screenshots-carousel-container {
+        outline: none;
+
+        &:focus {
+            outline: 2px solid rgba($primary-color, 0.3);
+            outline-offset: 4px;
+            border-radius: $border-radius;
+        }
+    }
+
+    .screenshot-container {
+        text-align: center;
+        max-width: 100%;
+
+        img {
+            border: 2px solid $gray-300;
+            border-radius: $border-radius;
+            box-shadow: $box-shadow;
+            transition: border-color 0.3s ease;
+
+            &:hover {
+                border-color: $primary-color;
+            }
+        }
+
+        h6 {
+            color: $primary-color;
+            font-weight: 600;
+        }
+
+        .text-muted {
+            font-size: 0.9rem;
+        }
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        background: rgba($gray-900, 0.3);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: rgba($gray-900, 0.6);
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .carousel-control-prev {
+        left: -60px;
+
+        @include mobile-only {
+            left: 10px;
+        }
+    }
+
+    .carousel-control-next {
+        right: -60px;
+
+        @include mobile-only {
+            right: 10px;
+        }
+    }
+
+    .carousel-indicators {
+        display: none; // Hide default indicators
+    }
+
+    // Thumbnail Navigation
+    .thumbnail-navigation {
+        margin-top: map-get($spacers, 3);
+        border-top: 1px solid $gray-200;
+        padding-top: map-get($spacers, 3);
+
+        .thumbnail-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: $border-radius;
+        }
+
+        .thumbnail-scroll {
+            display: flex;
+            gap: map-get($spacers, 2);
+            overflow-x: auto;
+            padding: map-get($spacers, 1) 0;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: $gray-400 transparent;
+
+            &::-webkit-scrollbar {
+                height: 6px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: $gray-200;
+                border-radius: 3px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: $gray-400;
+                border-radius: 3px;
+                transition: background 0.3s ease;
+
+                &:hover {
+                    background: $gray-600;
+                }
+            }
+        }
+
+        .thumbnail-item {
+            flex: 0 0 auto;
+            cursor: pointer;
+            border-radius: $border-radius-sm;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+
+            &.active {
+                border-color: $primary-color;
+                box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+                transform: translateY(-2px);
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba($primary-color, 0.1);
+                    pointer-events: none;
+                }
+            }
+
+            &:hover:not(.active) {
+                border-color: $gray-400;
+                transform: translateY(-1px);
+                box-shadow: $box-shadow-sm;
+            }
+
+            img {
+                width: 80px;
+                height: 60px;
+                object-fit: cover;
+                display: block;
+                transition: opacity 0.3s ease;
+            }
+
+            .thumbnail-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(transparent, rgba($black, 0.7));
+                color: $white;
+                font-size: 0.7rem;
+                padding: 2px 4px;
+                text-align: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            &:hover .thumbnail-overlay,
+            &.active .thumbnail-overlay {
+                opacity: 1;
+            }
+        }
+
+        .thumbnail-navigation-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: map-get($spacers, 2);
+
+            h6 {
+                margin: 0;
+                color: $gray-700;
+                font-weight: 600;
+            }
+
+            .controls-right {
+                display: flex;
+                align-items: center;
+                gap: map-get($spacers, 3);
+            }
+
+            .autoplay-controls {
+                .form-check {
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.25rem;
+
+                    .form-check-input {
+                        margin: 0;
+                        transform: scale(0.9);
+                    }
+
+                    .form-check-label {
+                        font-size: 0.75rem;
+                        color: $gray-600;
+                        font-weight: 500;
+                        cursor: pointer;
+                        margin: 0;
+                        white-space: nowrap;
+
+                        i {
+                            font-size: 0.7rem;
+                        }
+                    }
+                }
+            }
+
+            .thumbnail-nav-buttons {
+                display: flex;
+                gap: map-get($spacers, 1);
+
+                .btn {
+                    padding: 0.25rem 0.5rem;
+                    font-size: 0.75rem;
+                    border-radius: $border-radius-sm;
+                }
+            }
+        }
+    }
+
+    // Progress indicator
+    .screenshot-progress {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba($white, 0.9);
+        padding: 0.25rem 0.75rem;
+        border-radius: $border-radius-pill;
+        font-size: 0.8rem;
+        color: $gray-700;
+        backdrop-filter: blur(5px);
+        z-index: 10;
+    }
+}

@@ -68,3 +68,17 @@ Images should be named exactly after the game's database ID with `.jpg` extensio
 - Missing image → Series-specific gradient background
 - Invalid game ID → Gold gradient (OTHER series default)
 - Network error → CSS gradient fallback
+
+## Screenshots Directory:
+
+Game screenshots should be stored in the same `/images/games/` directory with the following naming convention:
+
+- `{game-id}-ss{number}.jpg` - e.g., `kq1-original-ss1.jpg`, `kq1-original-ss2.jpg`
+
+### Sample Screenshots for King's Quest I:
+
+- `kq1-original-ss1.jpg` - Castle Daventry
+- `kq1-original-ss2.jpg` - Graham's Quest Begins
+- `kq1-original-ss3.jpg` - The Magic Mirror
+- `kq1-original-ss4.jpg` - Dragon's Lair
+- `kq1-original-ss5.jpg` - Victory at Last

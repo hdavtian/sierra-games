@@ -92,6 +92,11 @@ export const gamesApi = {
   // Get all available series
   async getAllSeries() {
     return await apiClient.get('/games/series');
+  },
+
+  // Get screenshots for a game
+  async getGameScreenshots(gameId) {
+    return await apiClient.get(`/games/${gameId}/screenshots`);
   }
 };
 

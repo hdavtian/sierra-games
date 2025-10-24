@@ -2,7 +2,9 @@ package com.harmadavtian.sierragames.controller;
 
 import com.harmadavtian.sierragames.model.Game;
 import com.harmadavtian.sierragames.model.GameStatus;
+import com.harmadavtian.sierragames.model.Screenshot;
 import com.harmadavtian.sierragames.service.GameService;
+import com.harmadavtian.sierragames.service.ScreenshotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,10 +20,12 @@ import java.util.Optional;
 public class GameController {
 
     private final GameService gameService;
+    private final ScreenshotService screenshotService;
 
     @Autowired
-    public GameController(GameService gameService) {
+    public GameController(GameService gameService, ScreenshotService screenshotService) {
         this.gameService = gameService;
+        this.screenshotService = screenshotService;
     }
 
     // Public API endpoints (for frontend)
@@ -66,6 +70,12 @@ public class GameController {
     public ResponseEntity<Long> getPublishedGameCount() {
         long count = gameService.getPublishedGameCount();
         return ResponseEntity.ok(count);
+    }
+
+    @GetMapping("/games/{id}/screenshots")
+    public ResponseEntity<List<Screenshot>> getGameScreenshots(@PathVariable String id) {
+        List<Screenshot> screenshots = screenshotService.getScreenshotsByGameId(id);
+        return ResponseEntity.ok(screenshots);
     }
 
     // Admin API endpoints (for admin dashboard)

@@ -7,6 +7,8 @@ const GameDetailPage = () => {
   const navigate = useNavigate()
   const [game, setGame] = useState(null)
   const [allGames, setAllGames] = useState([])
+  const [screenshots, setScreenshots] = useState([])
+  const [loadingScreenshots, setLoadingScreenshots] = useState(false)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
@@ -26,6 +28,8 @@ const GameDetailPage = () => {
           const transformedGame = transformGameData(gameData)
           setGame(transformedGame)
           document.title = `${transformedGame.title} - Sierra Games`
+          // Load screenshots for this game
+          loadScreenshots(gameId)
         } else {
           setGame(null)
           document.title = 'Game Not Found - Sierra Games'
@@ -39,6 +43,19 @@ const GameDetailPage = () => {
         document.title = 'Error - Sierra Games'
       } finally {
         setLoading(false)
+      }
+    }
+
+    const loadScreenshots = async (gameId) => {
+      try {
+        setLoadingScreenshots(true)
+        const screenshotsData = await gamesApi.getGameScreenshots(gameId)
+        setScreenshots(screenshotsData || [])
+      } catch (err) {
+        console.error('Failed to load screenshots:', err)
+        setScreenshots([])
+      } finally {
+        setLoadingScreenshots(false)
       }
     }
 
@@ -78,6 +95,187 @@ const GameDetailPage = () => {
     }
     
     return similarGames
+  }
+
+  // Screenshots Carousel Component
+  const ScreenshotsCarousel = ({ screenshots, gameName }) => {
+    const [currentSlide, setCurrentSlide] = useState(0)
+    const [autoplay, setAutoplay] = useState(true)
+    const [intervalId, setIntervalId] = useState(null)
+
+    // Auto-advance slides
+    useEffect(() => {
+      if (autoplay && screenshots.length > 1) {
+        const id = setInterval(() => {
+          setCurrentSlide(current => (current + 1) % screenshots.length)
+        }, 4000) // 4 seconds per slide
+        setIntervalId(id)
+        return () => clearInterval(id)
+      } else if (intervalId) {
+        clearInterval(intervalId)
+        setIntervalId(null)
+      }
+    }, [autoplay, screenshots.length])
+
+    // Clean up interval on unmount
+    useEffect(() => {
+      return () => {
+        if (intervalId) {
+          clearInterval(intervalId)
+        }
+      }
+    }, [])
+
+    // Focus the carousel for keyboard navigation when component mounts
+    useEffect(() => {
+      const carousel = document.querySelector('.screenshots-carousel-container')
+      if (carousel) {
+        carousel.focus()
+      }
+    }, [])
+
+    const goToSlide = (index) => {
+      setCurrentSlide(index)
+    }
+
+    const nextSlide = () => {
+      setCurrentSlide(current => (current + 1) % screenshots.length)
+    }
+
+    const prevSlide = () => {
+      setCurrentSlide(current => (current - 1 + screenshots.length) % screenshots.length)
+    }
+
+    const scrollThumbnailIntoView = (index) => {
+      const thumbnailElement = document.querySelector(`[data-thumbnail-index="${index}"]`)
+      if (thumbnailElement) {
+        thumbnailElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        })
+      }
+    }
+
+    // Auto-scroll thumbnail when slide changes
+    useEffect(() => {
+      scrollThumbnailIntoView(currentSlide)
+    }, [currentSlide])
+
+    // Keyboard navigation
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault()
+        prevSlide()
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault()
+        nextSlide()
+      }
+    }
+
+    const currentScreenshot = screenshots[currentSlide]
+
+    return (
+      <div className="position-relative screenshots-carousel-container" tabIndex={0} onKeyDown={handleKeyDown}>
+        {/* Main Image Display */}
+        <div className="screenshot-container">
+          <img
+            src={`/images/games/${currentScreenshot.filename}`}
+            alt={currentScreenshot.title || `${gameName} Screenshot ${currentSlide + 1}`}
+            className="img-fluid rounded"
+            style={{ maxHeight: '70vh', objectFit: 'contain', width: '100%' }}
+          />
+          {currentScreenshot.title && (
+            <div className="text-center mt-3">
+              <h6 className="mb-1">{currentScreenshot.title}</h6>
+              {currentScreenshot.description && (
+                <p className="text-muted small mb-0">{currentScreenshot.description}</p>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Navigation Controls */}
+        {screenshots.length > 1 && (
+          <>
+            <button className="carousel-control-prev" type="button" onClick={prevSlide}>
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button className="carousel-control-next" type="button" onClick={nextSlide}>
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Next</span>
+            </button>
+          </>
+        )}
+
+        {/* Progress Indicator */}
+        <div className="screenshot-progress">
+          {currentSlide + 1} of {screenshots.length}
+        </div>
+
+        {/* Thumbnail Navigation */}
+        {screenshots.length > 1 && (
+          <div className="thumbnail-navigation">
+            <div className="thumbnail-navigation-controls">
+              <h6>Browse Screenshots</h6>
+              <div className="controls-right">
+                <div className="autoplay-controls">
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id="autoplayCheck"
+                      checked={autoplay}
+                      onChange={(e) => setAutoplay(e.target.checked)}
+                    />
+                    <label className="form-check-label" htmlFor="autoplayCheck">
+                      <i className="fas fa-play"></i>
+                      Auto
+                    </label>
+                  </div>
+                </div>
+                <div className="thumbnail-nav-buttons">
+                  <button 
+                    className="btn btn-outline-secondary btn-sm"
+                    onClick={() => document.querySelector('.thumbnail-scroll').scrollBy({left: -200, behavior: 'smooth'})}
+                  >
+                    <i className="fas fa-chevron-left"></i>
+                  </button>
+                  <button 
+                    className="btn btn-outline-secondary btn-sm"
+                    onClick={() => document.querySelector('.thumbnail-scroll').scrollBy({left: 200, behavior: 'smooth'})}
+                  >
+                    <i className="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="thumbnail-container">
+              <div className="thumbnail-scroll">
+                {screenshots.map((screenshot, index) => (
+                  <div
+                    key={screenshot.id}
+                    data-thumbnail-index={index}
+                    className={`thumbnail-item ${index === currentSlide ? 'active' : ''}`}
+                    onClick={() => goToSlide(index)}
+                    title={screenshot.title || `Screenshot ${index + 1}`}
+                  >
+                    <img
+                      src={`/images/games/${screenshot.filename}`}
+                      alt={`Thumbnail ${index + 1}`}
+                    />
+                    <div className="thumbnail-overlay">
+                      {index + 1}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    )
   }
 
   if (loading) {
@@ -192,6 +390,9 @@ const GameDetailPage = () => {
                       data-bs-target="#screenshotsModal"
                     >
                       <i className="fas fa-images"></i> Screenshots
+                      {screenshots.length > 0 && (
+                        <span className="badge bg-light text-dark ms-2">{screenshots.length}</span>
+                      )}
                     </button>
                     <button 
                       className="btn btn-outline-light btn-lg" 
@@ -342,25 +543,25 @@ const GameDetailPage = () => {
         <div className="modal-dialog modal-xl">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">Screenshots</h5>
+              <h5 className="modal-title">{game.title} - Screenshots</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div className="modal-body">
-              <div className="carousel slide">
-                <div className="carousel-inner">
-                  {game.screenshots && game.screenshots.map((screenshot, index) => (
-                    <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                      <div className="d-flex justify-content-center">
-                        <div className="screenshot-placeholder">
-                          <i className="fas fa-image"></i>
-                          <p>Screenshot {index + 1}</p>
-                          <small className="text-muted">{game.title}</small>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+              {loadingScreenshots ? (
+                <div className="text-center py-5">
+                  <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden">Loading screenshots...</span>
+                  </div>
+                  <p className="mt-2">Loading screenshots...</p>
                 </div>
-              </div>
+              ) : screenshots.length > 0 ? (
+                <ScreenshotsCarousel screenshots={screenshots} gameName={game.title} />
+              ) : (
+                <div className="text-center py-5">
+                  <i className="fas fa-images text-muted mb-3" style={{ fontSize: '3rem' }}></i>
+                  <p className="text-muted">No screenshots available for this game.</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
