@@ -115,7 +115,9 @@ function updateMainContent(game) {
     // Update long description
     const longDescription = document.getElementById('gameLongDescription');
     if (longDescription) {
-        const paragraphs = game.longDescription.split('\n\n');
+        // Convert escaped newlines to actual newlines and split into paragraphs
+        const text = game.longDescription.replace(/\\n/g, '\n');
+        const paragraphs = text.split('\n\n');
         longDescription.innerHTML = paragraphs.map(p => `<p>${p.trim()}</p>`).join('');
     }
     
