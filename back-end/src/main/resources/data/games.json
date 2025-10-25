@@ -195,29 +195,6 @@
     "featured": false
   },
   {
-    "id": "kq2015",
-    "title": "King's Quest (2015)",
-    "series": "KQ",
-    "seriesName": "King's Quest",
-    "year": 2015,
-    "developer": "The Odd Gentlemen",
-    "shortDescription": "A modern episodic reimagining of the King's Quest series.",
-    "longDescription": "King's Quest (2015) represents a triumphant return to form for one of adventure gaming's most beloved franchises, successfully bridging the gap between nostalgic reverence and modern game design sensibilities. Developed by The Odd Gentlemen and published by Sierra (now under Activision), this episodic masterpiece reimagines the King's Quest legacy through the lens of an elderly King Graham recounting his greatest adventures to his curious granddaughter Gwendolyn.\n\nThe game's narrative framework is both ingenious and emotionally resonant, using the framing device of storytelling to explore themes of legacy, memory, and the way our personal histories shape us. As players guide young Graham through his early adventures, the story jumps between past and present, with the elderly king's commentary providing wisdom, humor, and poignant reflection on the choices that defined his reign. This structure allows the game to honor the series' fairy tale roots while adding unprecedented emotional depth and character development.\n\nVisually and mechanically, the 2015 King's Quest strikes a perfect balance between classic adventure gaming principles and contemporary design philosophy. The gorgeous hand-painted art style evokes the warmth of a beloved storybook, while the choice-driven gameplay ensures that each player's version of Graham's story feels personal and meaningful.",
-    "characters": [
-      {"name": "King Graham", "description": "Elderly king telling stories of his adventures"},
-      {"name": "Gwendolyn", "description": "Graham's granddaughter and audience"}
-    ],
-    "features": [
-      {"name": "Episodic Structure", "description": "Released in multiple chapters"},
-      {"name": "Modern Production", "description": "Contemporary adventure game design"}
-    ],
-    "fanSites": [{"name": "The King's Quest Omnipedia", "url": "https://kingsquest.fandom.com"}],
-    "screenshots": ["kq2015-ss1.jpg", "kq2015-ss2.jpg", "kq2015-ss3.jpg"],
-    "videos": [],
-    "status": "PUBLISHED",
-    "featured": false
-  },
-  {
     "id": "sq1",
     "title": "Space Quest I: The Sarien Encounter",
     "series": "SQ",
@@ -471,7 +448,7 @@
     "featured": false
   },
   {
-    "id": "swat2",
+    "id": "pqswat2",
     "title": "SWAT 2",
     "series": "PQ",
     "seriesName": "Police Quest",
