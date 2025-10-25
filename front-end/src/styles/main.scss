@@ -985,8 +985,7 @@ a {
             }
         }
 
-        .fan-links,
-        .similar-games {
+        .fan-links {
             a {
                 display: block;
                 padding: 0.5rem 0;
@@ -999,6 +998,52 @@ a {
                 &:hover {
                     color: $primary-color;
                     text-decoration: none;
+                }
+            }
+        }
+
+        .series-games {
+            .series-game-item {
+                padding: 0.75rem 0;
+                border-bottom: 1px solid $gray-200;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                &.current-game {
+                    background: rgba($primary-color, 0.05);
+                    margin: 0 -1rem;
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                    border-radius: $border-radius;
+                }
+
+                a {
+                    display: block;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: $primary-color;
+                        text-decoration: none;
+
+                        .fa-chevron-right {
+                            color: $primary-color !important;
+                        }
+                    }
+                }
+
+
+
+                .series-game-content {
+                    flex: 1;
+                    min-width: 0; // Allow text to wrap properly
+
+                    .fw-bold {
+                        line-height: 1.3;
+                        word-break: break-word;
+                        hyphens: auto;
+                    }
                 }
             }
         }

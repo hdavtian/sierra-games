@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { gamesApi, transformGameData, SERIES_CONFIG, getSeriesConfig, getSeriesBgClass, formatYear, truncateText, getSeriesBackgroundStyle } from '../services/gamesApi'
+import { gamesApi, transformGameData, SERIES_CONFIG, getSeriesConfig, getSeriesBgClass, formatYear, getSeriesBackgroundStyle } from '../services/gamesApi'
 
 const GameDetailPage = () => {
   const { gameId } = useParams()
@@ -68,23 +68,16 @@ const GameDetailPage = () => {
 
 
 
-  const getSimilarGames = (currentGame) => {
+  const getSeriesGames = (currentGame) => {
     if (!allGames || !currentGame) return []
     
-    // First try to get games from the same series
-    let similarGames = allGames
-      .filter(g => g.id !== currentGame.id && g.series === currentGame.series)
-      .slice(0, 3)
+    // Get all games from the same series (including current game)
+    const seriesGames = allGames
+      .filter(g => g.series === currentGame.series)
+      .sort((a, b) => a.year - b.year) // Sort by year for chronological order
     
-    // If we don't have enough from the same series, add other games
-    if (similarGames.length < 3) {
-      const otherGames = allGames
-        .filter(g => g.id !== currentGame.id && g.series !== currentGame.series)
-        .slice(0, 3 - similarGames.length)
-      similarGames = [...similarGames, ...otherGames]
-    }
-    
-    return similarGames
+    // Only return if there are multiple games in the series
+    return seriesGames.length > 1 ? seriesGames : []
   }
 
   // Screenshots Carousel Component
@@ -356,7 +349,7 @@ const GameDetailPage = () => {
     )
   }
 
-  const similarGames = getSimilarGames(game)
+  const seriesGames = getSeriesGames(game)
 
   return (
     <div className="game-detail-wrapper">
@@ -516,24 +509,35 @@ const GameDetailPage = () => {
                   </div>
                 )}
 
-                {/* Similar Games */}
-                {similarGames.length > 0 && (
+                {/* Games in Series */}
+                {seriesGames.length > 0 && (
                   <div className="info-card">
-                    <h3>Similar Games</h3>
-                    <div className="similar-games">
-                      {similarGames.map((similarGame) => (
-                        <Link key={similarGame.id} to={`/game/${similarGame.id}`}>
-                          <div className="d-flex align-items-center">
-                            <div className="similar-game-icon me-2">
-                              <i className="fas fa-gamepad"></i>
-                            </div>
-                            <div>
-                              <div className="fw-bold">{truncateText(similarGame.title, 30)}</div>
-                              <small className="text-muted">{similarGame.year}</small>
-                            </div>
+                    <h3>Games in Series</h3>
+                    <div className="series-games">
+                      {seriesGames.map((seriesGame) => {
+                        const isCurrentGame = seriesGame.id === game.id
+                        return (
+                          <div key={seriesGame.id} className={`series-game-item ${isCurrentGame ? 'current-game' : ''}`}>
+                            {isCurrentGame ? (
+                              <div className="d-flex align-items-center">
+                                <div className="series-game-content">
+                                  <div className="fw-bold text-primary">{seriesGame.title}</div>
+                                </div>
+                                <i className="fas fa-chevron-right text-muted"></i>
+                              </div>
+                            ) : (
+                              <Link to={`/game/${seriesGame.id}`} className="text-decoration-none">
+                                <div className="d-flex align-items-center justify-content-between">
+                                  <div className="series-game-content">
+                                    <div className="fw-bold">{seriesGame.title}</div>
+                                  </div>
+                                  <i className="fas fa-chevron-right text-muted"></i>
+                                </div>
+                              </Link>
+                            )}
                           </div>
-                        </Link>
-                      ))}
+                        )
+                      })}
                     </div>
                   </div>
                 )}
