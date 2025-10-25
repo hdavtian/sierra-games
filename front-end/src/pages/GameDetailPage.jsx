@@ -90,7 +90,7 @@ const GameDetailPage = () => {
   // Screenshots Carousel Component
   const ScreenshotsCarousel = ({ screenshots, gameName }) => {
     const [currentSlide, setCurrentSlide] = useState(0)
-    const [autoplay, setAutoplay] = useState(true)
+    const [autoplay, setAutoplay] = useState(false)
     const [intervalId, setIntervalId] = useState(null)
 
     // Auto-advance slides
@@ -116,11 +116,26 @@ const GameDetailPage = () => {
       }
     }, [])
 
-    // Focus the carousel for keyboard navigation when component mounts
+    // Focus the carousel for keyboard navigation when modal opens
     useEffect(() => {
-      const carousel = document.querySelector('.screenshots-carousel-container')
-      if (carousel) {
-        carousel.focus()
+      const modalElement = document.getElementById('screenshotsModal')
+      
+      const handleModalShown = () => {
+        // Small delay to ensure modal is fully rendered
+        setTimeout(() => {
+          const carousel = document.querySelector('.screenshots-carousel-container')
+          if (carousel) {
+            carousel.focus()
+          }
+        }, 100)
+      }
+
+      if (modalElement) {
+        modalElement.addEventListener('shown.bs.modal', handleModalShown)
+        
+        return () => {
+          modalElement.removeEventListener('shown.bs.modal', handleModalShown)
+        }
       }
     }, [])
 
