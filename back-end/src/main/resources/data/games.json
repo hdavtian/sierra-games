@@ -1,0 +1,666 @@
+[
+  {
+    "id": "kq1",
+    "title": "King's Quest I: Quest for the Crown",
+    "series": "KQ",
+    "seriesName": "King's Quest",
+    "year": 1984,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Quest for the Three Treasures and save the kingdom of Daventry in this classic adventure that started it all.",
+    "longDescription": "King's Quest I: Quest for the Crown revolutionized the adventure game genre when it debuted in 1984, establishing Sierra On-Line as the premier creator of graphic adventures. This groundbreaking title introduced players to the enchanted kingdom of Daventry and the brave knight Sir Graham, who would become the central figure of one of gaming's most beloved franchises.",
+    "characters": [
+      {"name": "Sir Graham", "description": "The brave knight protagonist who becomes king"},
+      {"name": "King Edward", "description": "The aging king of Daventry"},
+      {"name": "The Wizard", "description": "A mysterious magic user in the forest"},
+      {"name": "The Woodsman", "description": "A helpful character who aids Graham"}
+    ],
+    "features": [
+      {"name": "Text Parser Interface", "description": "Type commands to interact with the game world"},
+      {"name": "Colorful Graphics", "description": "16-color EGA graphics that were revolutionary for 1984"},
+      {"name": "Fairy Tale Setting", "description": "Classic storybook atmosphere with familiar characters"},
+      {"name": "Multiple Solutions", "description": "Many puzzles have different ways to solve them"}
+    ],
+    "fanSites": [
+      {"name": "The King's Quest Omnipedia", "url": "https://kingsquest.fandom.com"},
+      {"name": "AGD Interactive", "url": "https://www.agdinteractive.com"}
+    ],
+    "screenshots": ["kq1-ss1.jpg", "kq1-ss2.jpg", "kq1-ss3.jpg"],
+    "videos": [
+      {"title": "King's Quest I Playthrough", "url": "https://youtube.com/watch?v=example1"},
+      {"title": "King's Quest I Review", "url": "https://youtube.com/watch?v=example2"}
+    ],
+    "status": "PUBLISHED",
+    "featured": true
+  },
+  {
+    "id": "kq2",
+    "title": "King's Quest II: Romancing the Throne",
+    "series": "KQ",
+    "seriesName": "King's Quest",
+    "year": 1985,
+    "developer": "Sierra On-Line",
+    "shortDescription": "King Graham seeks a bride and discovers the beautiful Valanice trapped in an enchanted tower.",
+    "longDescription": "King's Quest II: Romancing the Throne continues King Graham's story as the newly crowned ruler of Daventry faces the loneliness of royal responsibility and seeks a queen to share his throne.",
+    "characters": [
+      {"name": "King Graham", "description": "The brave king seeking a bride"},
+      {"name": "Valanice", "description": "The beautiful princess trapped in a tower"},
+      {"name": "Hagatha", "description": "The evil enchantress controlling Kolyma"}
+    ],
+    "features": [
+      {"name": "Romance Story", "description": "Graham's quest to find true love"},
+      {"name": "Fairy Tale Characters", "description": "Classic characters with Sierra twists"}
+    ],
+    "fanSites": [{"name": "The King's Quest Omnipedia", "url": "https://kingsquest.fandom.com"}],
+    "screenshots": ["kq2-ss1.jpg", "kq2-ss2.jpg", "kq2-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "kq3",
+    "title": "King's Quest III: To Heir Is Human",
+    "series": "KQ",
+    "seriesName": "King's Quest",
+    "year": 1986,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Prince Alexander must escape from the evil wizard Manannan and find his way home to Daventry.",
+    "longDescription": "Prince Alexander (Graham's son who was kidnapped as a baby) must escape from the evil wizard Manannan and find his way home to Daventry to save his family from a three-headed dragon.",
+    "characters": [
+      {"name": "Prince Alexander", "description": "Graham's son, enslaved by the wizard"},
+      {"name": "Manannan", "description": "The evil wizard who kidnapped Alexander"}
+    ],
+    "features": [
+      {"name": "Magic System", "description": "Learn and cast spells to solve puzzles"},
+      {"name": "Time Limits", "description": "Complete tasks before Manannan returns"}
+    ],
+    "fanSites": [{"name": "The King's Quest Omnipedia", "url": "https://kingsquest.fandom.com"}],
+    "screenshots": ["kq3-ss1.jpg", "kq3-ss2.jpg", "kq3-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "kq4",
+    "title": "King's Quest IV: The Perils of Rosella",
+    "series": "KQ",
+    "seriesName": "King's Quest",
+    "year": 1988,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Princess Rosella must save her father King Graham's life in this groundbreaking adventure.",
+    "longDescription": "King's Quest IV: The Perils of Rosella broke new ground by featuring a female protagonist. Princess Rosella must find a way to save her dying father King Graham.",
+    "characters": [
+      {"name": "Princess Rosella", "description": "Graham's daughter and the game's protagonist"},
+      {"name": "King Graham", "description": "Rosella's father, dying and in need of rescue"}
+    ],
+    "features": [
+      {"name": "Female Protagonist", "description": "First KQ game to star a woman"},
+      {"name": "Enhanced Graphics", "description": "Improved SCI engine visuals"}
+    ],
+    "fanSites": [{"name": "The King's Quest Omnipedia", "url": "https://kingsquest.fandom.com"}],
+    "screenshots": ["kq4-ss1.jpg", "kq4-ss2.jpg", "kq4-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "kq5",
+    "title": "King's Quest V: Absence Makes the Heart Go Yonder!",
+    "series": "KQ",
+    "seriesName": "King's Quest",
+    "year": 1990,
+    "developer": "Sierra On-Line",
+    "shortDescription": "King Graham must rescue his family from the evil wizard Mordack.",
+    "longDescription": "King Graham returns home to find his castle and family have vanished, taken by the evil wizard Mordack. Graham must journey to rescue them.",
+    "characters": [
+      {"name": "King Graham", "description": "The protagonist seeking his missing family"},
+      {"name": "Mordack", "description": "The evil wizard who kidnapped Graham's family"}
+    ],
+    "features": [
+      {"name": "Point-and-Click Interface", "description": "No more typing commands"},
+      {"name": "VGA Graphics", "description": "Beautiful 256-color artwork"}
+    ],
+    "fanSites": [{"name": "The King's Quest Omnipedia", "url": "https://kingsquest.fandom.com"}],
+    "screenshots": ["kq5-ss1.jpg", "kq5-ss2.jpg", "kq5-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "kq6",
+    "title": "King's Quest VI: Heir Today, Gone Tomorrow",
+    "series": "KQ",
+    "seriesName": "King's Quest",
+    "year": 1992,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Prince Alexander travels to the Land of the Green Isles to rescue Princess Cassima.",
+    "longDescription": "Prince Alexander falls in love with Princess Cassima and must travel to the Land of the Green Isles to rescue her from an arranged marriage.",
+    "characters": [
+      {"name": "Prince Alexander", "description": "The protagonist on a quest for love"},
+      {"name": "Princess Cassima", "description": "Alexander's love interest in distress"}
+    ],
+    "features": [
+      {"name": "Multiple Paths", "description": "Different ways to complete the story"},
+      {"name": "Voice Acting", "description": "Full speech throughout the game"}
+    ],
+    "fanSites": [{"name": "The King's Quest Omnipedia", "url": "https://kingsquest.fandom.com"}],
+    "screenshots": ["kq6-ss1.jpg", "kq6-ss2.jpg", "kq6-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "kq7",
+    "title": "King's Quest VII: The Princeless Bride",
+    "series": "KQ",
+    "seriesName": "King's Quest",
+    "year": 1994,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Queen Valanice and Princess Rosella are transported to the realm of Eldritch.",
+    "longDescription": "Queen Valanice and Princess Rosella find themselves in the magical realm of Eldritch, where they must work together to find their way home.",
+    "characters": [
+      {"name": "Queen Valanice", "description": "One of two playable protagonists"},
+      {"name": "Princess Rosella", "description": "Valanice's daughter, also playable"}
+    ],
+    "features": [
+      {"name": "Dual Protagonists", "description": "Play as both mother and daughter"},
+      {"name": "Disney-style Animation", "description": "Cartoon-like art style"}
+    ],
+    "fanSites": [{"name": "The King's Quest Omnipedia", "url": "https://kingsquest.fandom.com"}],
+    "screenshots": ["kq7-ss1.jpg", "kq7-ss2.jpg", "kq7-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "kq8",
+    "title": "King's Quest: Mask of Eternity",
+    "series": "KQ",
+    "seriesName": "King's Quest",
+    "year": 1998,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Connor must restore the Mask of Eternity to save the world from eternal darkness.",
+    "longDescription": "King's Quest: Mask of Eternity departed from series tradition with 3D graphics and action elements as Connor seeks to restore the broken Mask of Eternity.",
+    "characters": [
+      {"name": "Connor", "description": "A new protagonist, not from the royal family"},
+      {"name": "King Graham", "description": "Makes appearances in the story"}
+    ],
+    "features": [
+      {"name": "3D Graphics", "description": "First KQ game in full 3D"},
+      {"name": "Action Elements", "description": "Combat and platforming mechanics"}
+    ],
+    "fanSites": [{"name": "The King's Quest Omnipedia", "url": "https://kingsquest.fandom.com"}],
+    "screenshots": ["kq8-ss1.jpg", "kq8-ss2.jpg", "kq8-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "kq2015",
+    "title": "King's Quest (2015)",
+    "series": "KQ",
+    "seriesName": "King's Quest",
+    "year": 2015,
+    "developer": "The Odd Gentlemen",
+    "shortDescription": "A modern episodic reimagining of the King's Quest series.",
+    "longDescription": "The 2015 King's Quest is an episodic adventure game that serves as both a reboot and continuation of the series, featuring an elderly King Graham telling stories to his granddaughter.",
+    "characters": [
+      {"name": "King Graham", "description": "Elderly king telling stories of his adventures"},
+      {"name": "Gwendolyn", "description": "Graham's granddaughter and audience"}
+    ],
+    "features": [
+      {"name": "Episodic Structure", "description": "Released in multiple chapters"},
+      {"name": "Modern Production", "description": "Contemporary adventure game design"}
+    ],
+    "fanSites": [{"name": "The King's Quest Omnipedia", "url": "https://kingsquest.fandom.com"}],
+    "screenshots": ["kq2015-ss1.jpg", "kq2015-ss2.jpg", "kq2015-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "sq1",
+    "title": "Space Quest I: The Sarien Encounter",
+    "series": "SQ",
+    "seriesName": "Space Quest",
+    "year": 1986,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Join Roger Wilco, the bumbling space janitor, on his first hilarious adventure to save the galaxy.",
+    "longDescription": "Space Quest I: The Sarien Encounter burst onto the adventure gaming scene in 1986 as a brilliant parody that simultaneously celebrated and gently mocked the science fiction genre.",
+    "characters": [
+      {"name": "Roger Wilco", "description": "The hapless space janitor turned hero"},
+      {"name": "Sarien Commander", "description": "The evil alien antagonist"}
+    ],
+    "features": [
+      {"name": "Comedy Adventure", "description": "Hilarious sci-fi parody gameplay"},
+      {"name": "Creative Deaths", "description": "Memorable and funny game over sequences"}
+    ],
+    "fanSites": [{"name": "Space Quest Net", "url": "https://spacequest.net"}],
+    "screenshots": ["sq1-ss1.jpg", "sq1-ss2.jpg", "sq1-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": true
+  },
+  {
+    "id": "sq2",
+    "title": "Space Quest II: Vohaul's Revenge",
+    "series": "SQ",
+    "seriesName": "Space Quest",
+    "year": 1987,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Roger Wilco is captured by Sludge Vohaul, the evil scientist behind the Sarien attack.",
+    "longDescription": "Roger Wilco is captured by Sludge Vohaul, the evil scientist behind the Sarien attack. Vohaul plans to unleash insurance salesmen on the planet Xenon as revenge.",
+    "characters": [
+      {"name": "Roger Wilco", "description": "The reluctant hero janitor"},
+      {"name": "Sludge Vohaul", "description": "The recurring villain scientist"}
+    ],
+    "features": [
+      {"name": "Jungle Adventure", "description": "Explore the planet Labion"},
+      {"name": "Vohaul Introduction", "description": "Meet the series' main villain"}
+    ],
+    "fanSites": [{"name": "Space Quest Net", "url": "https://spacequest.net"}],
+    "screenshots": ["sq2-ss1.jpg", "sq2-ss2.jpg", "sq2-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "sq3",
+    "title": "Space Quest III: The Pirates of Pestulon",
+    "series": "SQ",
+    "seriesName": "Space Quest",
+    "year": 1989,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Roger crash-lands on a junk planet and must build a ship to rescue the Two Guys from Andromeda.",
+    "longDescription": "Space Quest III finds Roger Wilco stranded on a garbage scow, where he must rescue the Two Guys from Andromeda from the evil software company ScumSoft.",
+    "characters": [
+      {"name": "Roger Wilco", "description": "The space janitor hero"},
+      {"name": "Two Guys from Andromeda", "description": "The game's creators, kidnapped by ScumSoft"}
+    ],
+    "features": [
+      {"name": "Meta Humor", "description": "Self-referential jokes about game development"},
+      {"name": "Arcade Sequences", "description": "Mini-games within the adventure"}
+    ],
+    "fanSites": [{"name": "Space Quest Net", "url": "https://spacequest.net"}],
+    "screenshots": ["sq3-ss1.jpg", "sq3-ss2.jpg", "sq3-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "sq4",
+    "title": "Space Quest IV: Roger Wilco and the Time Rippers",
+    "series": "SQ",
+    "seriesName": "Space Quest",
+    "year": 1991,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Sludge Vohaul travels back in time to prevent Roger from ever being born.",
+    "longDescription": "Sludge Vohaul travels back in time to prevent Roger from ever being born. Roger must chase him through time, visiting his own past and future adventures.",
+    "characters": [
+      {"name": "Roger Wilco", "description": "The time-traveling janitor"},
+      {"name": "Sludge Vohaul", "description": "The time-manipulating villain"}
+    ],
+    "features": [
+      {"name": "Time Travel", "description": "Visit past and future Space Quest games"},
+      {"name": "VGA Graphics", "description": "Beautiful 256-color artwork"}
+    ],
+    "fanSites": [{"name": "Space Quest Net", "url": "https://spacequest.net"}],
+    "screenshots": ["sq4-ss1.jpg", "sq4-ss2.jpg", "sq4-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "sq5",
+    "title": "Space Quest V: Roger Wilco - The Next Mutation",
+    "series": "SQ",
+    "seriesName": "Space Quest",
+    "year": 1993,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Captain Roger Wilco must command his own starship and crew.",
+    "longDescription": "Roger Wilco graduates from the StarCon Academy and must captain his own ship, the SCS Eureka, while investigating a conspiracy involving illegal alien experiments.",
+    "characters": [
+      {"name": "Captain Roger Wilco", "description": "Now a starship captain"},
+      {"name": "Ambassador Beatrice Wankmeister", "description": "Roger's love interest"}
+    ],
+    "features": [
+      {"name": "Starship Command", "description": "Captain your own vessel"},
+      {"name": "Voice Acting", "description": "Full speech throughout"}
+    ],
+    "fanSites": [{"name": "Space Quest Net", "url": "https://spacequest.net"}],
+    "screenshots": ["sq5-ss1.jpg", "sq5-ss2.jpg", "sq5-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "sq6",
+    "title": "Space Quest 6: Roger Wilco in the Spinal Frontier",
+    "series": "SQ",
+    "seriesName": "Space Quest",
+    "year": 1995,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Roger must be miniaturized to save his commanding officer from a deadly disease.",
+    "longDescription": "In the final official Space Quest game, Roger must be shrunk down to microscopic size to enter his commander's body and fight off a deadly infection from within.",
+    "characters": [
+      {"name": "Roger Wilco", "description": "The miniaturized hero"},
+      {"name": "Stellar Santiago", "description": "Roger's commanding officer in danger"}
+    ],
+    "features": [
+      {"name": "Miniaturization", "description": "Adventure inside a human body"},
+      {"name": "SVGA Graphics", "description": "High resolution artwork"}
+    ],
+    "fanSites": [{"name": "Space Quest Net", "url": "https://spacequest.net"}],
+    "screenshots": ["sq6-ss1.jpg", "sq6-ss2.jpg", "sq6-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "pq1",
+    "title": "Police Quest: In Pursuit of the Death Angel",
+    "series": "PQ",
+    "seriesName": "Police Quest",
+    "year": 1987,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Experience realistic police work as Officer Sonny Bonds in this groundbreaking procedural adventure.",
+    "longDescription": "Police Quest: In Pursuit of the Death Angel marked Sierra On-Line's bold departure from fantasy and science fiction into the gritty, realistic world of law enforcement.",
+    "characters": [
+      {"name": "Sonny Bonds", "description": "The honest police officer protagonist"},
+      {"name": "Death Angel", "description": "The dangerous drug dealer antagonist"}
+    ],
+    "features": [
+      {"name": "Realistic Police Work", "description": "Authentic law enforcement procedures"},
+      {"name": "Crime Investigation", "description": "Solve cases using real detective work"}
+    ],
+    "fanSites": [{"name": "Sierra Gamers", "url": "https://sierragamers.com"}],
+    "screenshots": ["pq1-ss1.jpg", "pq1-ss2.jpg", "pq1-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": true
+  },
+  {
+    "id": "pq2",
+    "title": "Police Quest II: The Vengeance",
+    "series": "PQ",
+    "seriesName": "Police Quest",
+    "year": 1988,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Detective Sonny Bonds faces a revenge plot by the Death Angel's brother.",
+    "longDescription": "Sonny Bonds is now a detective, but the Death Angel's brother seeks revenge for his sibling's imprisonment, putting Sonny and his loved ones in danger.",
+    "characters": [
+      {"name": "Detective Sonny Bonds", "description": "Now promoted to detective"},
+      {"name": "Jessie Bains", "description": "The Death Angel's vengeful brother"}
+    ],
+    "features": [
+      {"name": "Detective Work", "description": "Advanced investigative procedures"},
+      {"name": "Personal Stakes", "description": "Sonny's family is threatened"}
+    ],
+    "fanSites": [{"name": "Sierra Gamers", "url": "https://sierragamers.com"}],
+    "screenshots": ["pq2-ss1.jpg", "pq2-ss2.jpg", "pq2-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "pq3",
+    "title": "Police Quest III: The Kindred",
+    "series": "PQ",
+    "seriesName": "Police Quest",
+    "year": 1991,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Sonny Bonds investigates a series of murders connected to a satanic cult.",
+    "longDescription": "Detective Sonny Bonds must investigate ritualistic murders that appear to be connected to a dangerous satanic cult operating in the city.",
+    "characters": [
+      {"name": "Detective Sonny Bonds", "description": "Experienced detective facing occult crimes"},
+      {"name": "The Kindred", "description": "Members of the satanic cult"}
+    ],
+    "features": [
+      {"name": "Occult Investigation", "description": "Investigate ritualistic crimes"},
+      {"name": "VGA Graphics", "description": "Enhanced visual presentation"}
+    ],
+    "fanSites": [{"name": "Sierra Gamers", "url": "https://sierragamers.com"}],
+    "screenshots": ["pq3-ss1.jpg", "pq3-ss2.jpg", "pq3-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "pq4",
+    "title": "Police Quest IV: Open Season",
+    "series": "PQ",
+    "seriesName": "Police Quest",
+    "year": 1993,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Detective John Carey investigates a series of cop killings in Los Angeles.",
+    "longDescription": "Police Quest IV introduced a new protagonist, Detective John Carey, who must investigate a series of police officer murders in Los Angeles.",
+    "characters": [
+      {"name": "Detective John Carey", "description": "The new protagonist, an LAPD detective"},
+      {"name": "Various Suspects", "description": "Multiple suspects in the cop killer case"}
+    ],
+    "features": [
+      {"name": "New Protagonist", "description": "Fresh character and setting"},
+      {"name": "Photo-realistic Graphics", "description": "Digitized actors and locations"}
+    ],
+    "fanSites": [{"name": "Sierra Gamers", "url": "https://sierragamers.com"}],
+    "screenshots": ["pq4-ss1.jpg", "pq4-ss2.jpg", "pq4-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "pqswat",
+    "title": "Police Quest: SWAT",
+    "series": "PQ",
+    "seriesName": "Police Quest",
+    "year": 1995,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Join an elite SWAT team in tactical police operations.",
+    "longDescription": "Police Quest: SWAT departed from traditional adventure gameplay to focus on realistic SWAT team tactics and procedures in various crisis situations.",
+    "characters": [
+      {"name": "SWAT Officer", "description": "Player character in elite tactical unit"},
+      {"name": "Team Members", "description": "Fellow SWAT team operators"}
+    ],
+    "features": [
+      {"name": "Tactical Gameplay", "description": "Strategic SWAT operations"},
+      {"name": "Training Scenarios", "description": "Learn real SWAT procedures"}
+    ],
+    "fanSites": [{"name": "Sierra Gamers", "url": "https://sierragamers.com"}],
+    "screenshots": ["pqswat-ss1.jpg", "pqswat-ss2.jpg", "pqswat-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "swat2",
+    "title": "SWAT 2",
+    "series": "PQ",
+    "seriesName": "Police Quest",
+    "year": 1998,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Advanced tactical police simulation with improved graphics and gameplay.",
+    "longDescription": "SWAT 2 continued the tactical police simulation series with enhanced graphics, more complex scenarios, and improved realism in SWAT operations.",
+    "characters": [
+      {"name": "SWAT Commander", "description": "Player leads tactical operations"},
+      {"name": "Elite Officers", "description": "Specialized team members with unique skills"}
+    ],
+    "features": [
+      {"name": "Enhanced Tactics", "description": "More sophisticated operational planning"},
+      {"name": "Improved Graphics", "description": "Better visual presentation"}
+    ],
+    "fanSites": [{"name": "Sierra Gamers", "url": "https://sierragamers.com"}],
+    "screenshots": ["swat2-ss1.jpg", "swat2-ss2.jpg", "swat2-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "qfg1",
+    "title": "Quest for Glory I: So You Want to Be a Hero",
+    "series": "QFG",
+    "seriesName": "Quest for Glory",
+    "year": 1989,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Begin your heroic journey in this RPG-adventure hybrid that lets you choose your path.",
+    "longDescription": "Quest for Glory I: So You Want to Be a Hero stands as one of the most innovative and influential games in adventure gaming history, masterfully blending the narrative depth of traditional adventure games with the character progression and statistical mechanics of role-playing games.",
+    "characters": [
+      {"name": "Hero", "description": "The customizable protagonist on a quest for glory"},
+      {"name": "Baba Yaga", "description": "The mysterious witch in the forest"},
+      {"name": "Sheriff", "description": "The town's law enforcement leader"}
+    ],
+    "features": [
+      {"name": "Character Classes", "description": "Choose between Fighter, Magic User, or Thief"},
+      {"name": "Skill Development", "description": "Improve abilities through practice and use"},
+      {"name": "RPG Elements", "description": "Statistics and character progression"}
+    ],
+    "fanSites": [{"name": "Quest for Glory Omnipedia", "url": "https://questforglory.fandom.com"}],
+    "screenshots": ["qfg1-ss1.jpg", "qfg1-ss2.jpg", "qfg1-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": true
+  },
+  {
+    "id": "qfg2",
+    "title": "Quest for Glory II: Trial by Fire",
+    "series": "QFG",
+    "seriesName": "Quest for Glory",
+    "year": 1990,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Continue your hero's journey in the desert city of Shapeir.",
+    "longDescription": "The hero travels to the desert city of Shapeir, where they must prove themselves worthy and uncover a plot involving powerful genies and ancient magic.",
+    "characters": [
+      {"name": "Hero", "description": "The continuing protagonist"},
+      {"name": "Emir of Shapeir", "description": "Ruler of the desert city"},
+      {"name": "Fire Elemental", "description": "Powerful magical being"}
+    ],
+    "features": [
+      {"name": "Character Import", "description": "Continue with your QFG1 character"},
+      {"name": "Desert Setting", "description": "Arabian Nights-inspired world"}
+    ],
+    "fanSites": [{"name": "Quest for Glory Omnipedia", "url": "https://questforglory.fandom.com"}],
+    "screenshots": ["qfg2-ss1.jpg", "qfg2-ss2.jpg", "qfg2-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "qfg3",
+    "title": "Quest for Glory III: Wages of War",
+    "series": "QFG",
+    "seriesName": "Quest for Glory",
+    "year": 1992,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Journey to Africa-inspired Tarna to prevent a war between peoples.",
+    "longDescription": "The hero travels to the Africa-inspired land of Tarna, where they must prevent a war between the Simbani and Leopardmen while dealing with dangerous demons.",
+    "characters": [
+      {"name": "Hero", "description": "The experienced adventurer"},
+      {"name": "Rakeesh", "description": "The paladin lion-man mentor"},
+      {"name": "Demon Wizard", "description": "The main antagonist"}
+    ],
+    "features": [
+      {"name": "African Setting", "description": "Inspired by African cultures and mythology"},
+      {"name": "Diplomacy", "description": "Prevent war through negotiation"}
+    ],
+    "fanSites": [{"name": "Quest for Glory Omnipedia", "url": "https://questforglory.fandom.com"}],
+    "screenshots": ["qfg3-ss1.jpg", "qfg3-ss2.jpg", "qfg3-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "qfg4",
+    "title": "Quest for Glory IV: Shadows of Darkness",
+    "series": "QFG",
+    "seriesName": "Quest for Glory",
+    "year": 1993,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Face the undead and dark magic in the gothic land of Mordavia.",
+    "longDescription": "The hero finds themselves in the dark, gothic land of Mordavia, where they must deal with vampires, werewolves, and other creatures of the night while investigating an ancient evil.",
+    "characters": [
+      {"name": "Hero", "description": "The seasoned adventurer"},
+      {"name": "Katrina", "description": "The mysterious vampire"},
+      {"name": "Ad Avis", "description": "The returning dark wizard"}
+    ],
+    "features": [
+      {"name": "Gothic Horror", "description": "Dark fantasy atmosphere"},
+      {"name": "Voice Acting", "description": "Full speech throughout the game"}
+    ],
+    "fanSites": [{"name": "Quest for Glory Omnipedia", "url": "https://questforglory.fandom.com"}],
+    "screenshots": ["qfg4-ss1.jpg", "qfg4-ss2.jpg", "qfg4-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "qfg5",
+    "title": "Quest for Glory V: Dragon Fire",
+    "series": "QFG",
+    "seriesName": "Quest for Glory",
+    "year": 1998,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Complete your hero's journey in ancient Greece-inspired Silmaria.",
+    "longDescription": "In the final Quest for Glory game, the hero travels to the Mediterranean-inspired kingdom of Silmaria to compete for the hand of the princess and the throne, while dealing with assassins and ancient threats.",
+    "characters": [
+      {"name": "Hero", "description": "The legendary adventurer"},
+      {"name": "Princess Elsa", "description": "The prize of the competition"},
+      {"name": "Dragon of Doom", "description": "The ancient menace"}
+    ],
+    "features": [
+      {"name": "Multiple Suitors", "description": "Compete against other heroes"},
+      {"name": "Greek Mythology", "description": "Inspired by ancient Greek culture"}
+    ],
+    "fanSites": [{"name": "Quest for Glory Omnipedia", "url": "https://questforglory.fandom.com"}],
+    "screenshots": ["qfg5-ss1.jpg", "qfg5-ss2.jpg", "qfg5-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "lsl1",
+    "title": "Leisure Suit Larry in the Land of the Lounge Lizards",
+    "series": "LSL",
+    "seriesName": "Leisure Suit Larry",
+    "year": 1987,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Follow Larry Laffer on his quest for love in this adult-oriented comedy adventure.",
+    "longDescription": "Leisure Suit Larry in the Land of the Lounge Lizards represents one of the most audacious and controversial entries in Sierra On-Line's catalog, boldly venturing into adult-oriented comedy adventure gaming.",
+    "characters": [
+      {"name": "Larry Laffer", "description": "The hapless protagonist searching for love"},
+      {"name": "Fawn", "description": "A potential romantic interest"},
+      {"name": "Faith", "description": "Another woman Larry encounters"}
+    ],
+    "features": [
+      {"name": "Adult Comedy", "description": "Mature humor and themes"},
+      {"name": "Age Verification", "description": "Famous trivia questions for access"}
+    ],
+    "fanSites": [{"name": "Leisure Suit Larry Series Site", "url": "https://leisuresuitlarry.net"}],
+    "screenshots": ["lsl1-ss1.jpg", "lsl1-ss2.jpg", "lsl1-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  },
+  {
+    "id": "goldrush",
+    "title": "Gold Rush!",
+    "series": "OTHER",
+    "seriesName": "Standalone",
+    "year": 1988,
+    "developer": "Sierra On-Line",
+    "shortDescription": "Travel to California during the 1849 Gold Rush in this historical adventure.",
+    "longDescription": "Gold Rush! stands as Sierra On-Line's most ambitious attempt to create historically authentic interactive entertainment, transforming one of America's most dramatic and transformative periods into an engaging adventure game.",
+    "characters": [
+      {"name": "Jerrod Wilson", "description": "The newspaper reporter protagonist"},
+      {"name": "Brooklyn Citizens", "description": "People from Jerrod's hometown"},
+      {"name": "Fellow Prospectors", "description": "Other gold seekers on the journey"}
+    ],
+    "features": [
+      {"name": "Historical Accuracy", "description": "Authentic 1849 Gold Rush experience"},
+      {"name": "Multiple Routes", "description": "Three different paths to California"},
+      {"name": "Educational Content", "description": "Learn real history while playing"}
+    ],
+    "fanSites": [{"name": "Sierra Gamers", "url": "https://sierragamers.com"}],
+    "screenshots": ["goldrush-ss1.jpg", "goldrush-ss2.jpg", "goldrush-ss3.jpg"],
+    "videos": [],
+    "status": "PUBLISHED",
+    "featured": false
+  }
+]

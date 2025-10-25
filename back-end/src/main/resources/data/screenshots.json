@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "gameId": "kq1",
+    "title": "Castle Daventry",
+    "description": "The magnificent castle of Daventry where King Edward rules",
+    "filename": "kq1-ss1.jpg"
+  },
+  {
+    "id": 2,
+    "gameId": "kq1",
+    "title": "Graham's Quest Begins",
+    "description": "Sir Graham receives his quest from the aging King Edward",
+    "filename": "kq1-ss2.jpg"
+  },
+  {
+    "id": 3,
+    "gameId": "kq1",
+    "title": "The Magic Mirror",
+    "description": "Graham discovers the magic mirror that answers any question",
+    "filename": "kq1-ss3.jpg"
+  },
+  {
+    "id": 4,
+    "gameId": "kq1",
+    "title": "Dragon's Lair",
+    "description": "The fearsome dragon guarding one of the legendary treasures",
+    "filename": "kq1-ss4.jpg"
+  },
+  {
+    "id": 5,
+    "gameId": "kq1",
+    "title": "Victory at Last",
+    "description": "Graham returns triumphant with all three magical treasures",
+    "filename": "kq1-ss5.jpg"
+  }
+]
