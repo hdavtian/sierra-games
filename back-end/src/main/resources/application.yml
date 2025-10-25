@@ -26,6 +26,10 @@ spring:
     baseline-on-migrate: true
     validate-on-migrate: true
 
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
 logging:
   level:
     com.harmadavtian.sierragames: DEBUG
