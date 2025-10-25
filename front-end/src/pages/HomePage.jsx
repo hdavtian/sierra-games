@@ -128,24 +128,57 @@ const HomePage = () => {
           </div>
           
           <div className="carousel-inner">
-            {featuredGames.map((game, index) => (
-              <div key={game.id} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                <div 
-                  className={`carousel-slide ${getSeriesBgClass(game.series)}`}
-                  style={getSeriesBackgroundStyle(game.series)}
-                >
-                  <div className="container">
-                    <div className="carousel-content">
-                      <h1>{game.title}</h1>
-                      <p>{game.shortDescription}</p>
-                      <Link to={`/game/${game.id}`} className="btn btn-primary">
-                        {getSeriesActionText(game.series)}
-                      </Link>
+            {featuredGames.map((game, index) => {
+              // Get all games in this series
+              const seriesGames = getGamesBySeries(games, game.series)
+              
+              return (
+                <div key={game.id} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+                  <div 
+                    className={`carousel-slide ${getSeriesBgClass(game.series)}`}
+                    style={getSeriesBackgroundStyle(game.series)}
+                  >
+                    <div className="container">
+                      <div className="row align-items-center">
+                        {/* Hero Content - Left Side */}
+                        <div className="col-md-8">
+                          <div className="carousel-content">
+                            <h1>{game.title}</h1>
+                            <p>{game.shortDescription}</p>
+                            <Link to={`/game/${game.id}`} className="btn btn-primary">
+                              {getSeriesActionText(game.series)}
+                            </Link>
+                          </div>
+                        </div>
+                        
+                        {/* Game Cards - Right Side */}
+                        <div className="col-md-4">
+                          <div className="carousel-game-cards">
+                            <div className="game-cards-grid">
+                              {seriesGames.slice(0, 6).map((seriesGame, cardIndex) => (
+                                <Link 
+                                  key={seriesGame.id} 
+                                  to={`/game/${seriesGame.id}`} 
+                                  className="carousel-mini-card"
+                                >
+                                  <div 
+                                    className="card-background"
+                                    style={getGameCardStyle(seriesGame.id, game.series)}
+                                  ></div>
+                                  <div className="card-text-overlay">
+                                    <h6 className="card-title">{seriesGame.title}</h6>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
           
           <button className="carousel-control-prev" type="button" data-bs-target="#gamesCarousel" data-bs-slide="prev">
